@@ -1,0 +1,8 @@
+*~
+*.elc
+ac-comphist.dat
+tramp
+.ropeproject/
+auto-save-list/*
+*/host/Tor*
+private.el

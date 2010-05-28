@@ -1,0 +1,11 @@
+#contributor : me
+#name : html for install via pip
+# --
+<h4 id="${1:install}">Install $2</h4>
+<ul>
+  <li><a href="/blog/2010/02/how-install-pip-ubuntu/">Install pip</a></li>
+  <li>Install $2
+    <pre class="console">$ sudo pip install $3</pre>
+  </li>
+</ul>
+$0

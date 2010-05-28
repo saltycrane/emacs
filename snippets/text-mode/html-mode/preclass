@@ -1,0 +1,5 @@
+#contributor : me
+#name : <pre class="...">...</pre>
+# --
+<pre class="$1">$0
+</pre>

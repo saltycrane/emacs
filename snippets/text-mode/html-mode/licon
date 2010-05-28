@@ -1,0 +1,6 @@
+#contributor : me
+#name : <li>...<pre class="console">...</pre></li>
+# --
+<li>$1
+<pre class="console">$2</pre>
+</li>$0

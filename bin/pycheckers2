@@ -1,0 +1,5 @@
+#!/bin/bash
+
+~/lib/python-environments/default/bin/pyflakes "$1"
+~/lib/python-environments/default/bin/pep8 --repeat "$1"
+false

@@ -1,0 +1,5 @@
+#name : pyinotify
+# --
+def process_IN_$1(self, event):
+    print "$1 event:", event.pathname
+$0
