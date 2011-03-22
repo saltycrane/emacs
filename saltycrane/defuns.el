@@ -94,3 +94,13 @@
   (if (interactive-p)
       (insert hostname))
   hostname))
+
+;;================================================
+;; Remove ^M characters
+;; http://stackoverflow.com/questions/730751/hiding-m-in-emacs
+;;================================================
+(defun remove-dos-eol ()
+  "Removes the disturbing '^M' showing up in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))

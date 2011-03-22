@@ -18,11 +18,6 @@
 (add-to-list 'load-path emacs-dir)
 (add-to-list 'load-path sc-vendor-dir)
 
-;; load private stuff
-(setq sc-private-config (concat emacs-dir "/saltycrane/private.el"))
-(when (file-exists-p sc-private-config)
-  (load sc-private-config))
-
 ;; load other stuff
 (load "saltycrane/defuns")
 (load "saltycrane/customizations")
@@ -45,3 +40,8 @@
 (print sc-host-config)
 (when (file-exists-p sc-host-config)
   (load sc-host-config))
+
+;; load private stuff
+(setq sc-private-config "~/.emacs.prv")
+(when (file-exists-p sc-private-config)
+  (load sc-private-config))

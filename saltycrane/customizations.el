@@ -1,4 +1,3 @@
-(server-start)                         ; server mode
 (setq inhibit-startup-message t)       ; don't show the startup message
 (setq tool-bar-mode nil)               ; don't show the tool bar
 (setq menu-bar-mode nil)               ; don't show the menu bar
@@ -23,11 +22,8 @@
 
 ;; whitespace
 (setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
-(setq-default show-trailing-whitespace t)
 (setq-default default-indicate-empty-lines t)
 
 ;; uniquify
+(require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
-(setq uniquify-separator "/")
-(setq uniquify-after-kill-buffer-p t)
-(setq uniquify-ignore-buffers-re "^\\*")

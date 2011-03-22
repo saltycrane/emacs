@@ -1,0 +1,50 @@
+nxhtml: http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-2.08-100425.zip
+smex: https://github.com/nonsequitur/smex/zipball/1.1.1
+
+magit: https://github.com/downloads/philjackson/magit/magit-0.8.2.tar.gz
+    20061  cd .emacs.d
+    20062  cd vendor/
+    20063  cp /home/eliot/var/incoming/magit-0.8.2.tar.gz .
+    20064  rm -rf magit-0.8.2/
+    20065  tar zxf magit-0.8.2.tar.gz
+    20066  cd magit-0.8.2/
+    20067  cd ..
+    20068  mv magit-0.8.2/ magit-0.8.2-source
+    20069  mkdir magit-0.8.2
+    20070  cd magit-0.8.2-source/
+    20071  sadf ./configure --prefix=/home/eliot/.emacs.d/vendor/magit-0.8.2
+    20072  rmdir ../magit-0.8.2/
+    20073  dir ../magit-0.8.2-source/
+    20074  make
+    20075  make install
+
+twittering-mode: https://github.com/hayamiz/twittering-mode/zipball/v1.0.0
+    tar zxvf twittering-mode-1.0.0.tar.gz
+    (add-to-list 'load-path (concat sc-vendor-dir "/twittering-mode-1.0.0"))
+    (require 'twittering-mode)
+
+actionscript-mode:
+ http://austin.pettomato.com/actionscript-mode.el (2011-02-25)
+
+ipython.el (requires python-mode):
+http://ipython.scipy.org/doc/manual/html/config/editors.html
+wget http://ipython.scipy.org/dist/ipython.el
+(require 'ipython)
+(setq ansi-color-for-comint-mode t)
+
+python-mode.el:
+http://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl
+20251  wget http://launchpad.net/python-mode/trunk/5.2.0/+download/python-mode-5.2.0.tgz
+20252  tar zxf python-mode-5.2.0.tgz
+20253  cd python-mode/
+20254  cd ..
+20255  mv python-mode/ python-mode-5.2.0
+ (add-to-list 'load-path (concat sc-vendor-dir "/python-mode-5.2.0"))
+ (autoload 'python-mode "python-mode" "Python Mode." t)
+ (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+ (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+virtualenv.el:
+2011-03-09 (228238acd0d1b3443ef1)
+wget --no-check-certificate https://github.com/aculich/virtualenv.el/raw/master/virtualenv.el
+(require 'virtualenv)

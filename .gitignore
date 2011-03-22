@@ -1,8 +1,10 @@
 *~
 *.elc
+*.tgz
+*.tar.gz
+abbrev_defs
 ac-comphist.dat
 tramp
 .ropeproject/
 auto-save-list/*
 */host/Tor*
-private.el

@@ -3,9 +3,9 @@
 (define-key isearch-mode-map "\C-f" 'isearch-repeat-forward)
 (global-set-key "\C-s" 'save-buffer)
 (global-set-key "\M-g" 'goto-line)
-(global-set-key "\C-q" 'delete-frame)
-(global-set-key "\C-w" 'kill-this-buffer)
-(global-set-key "\C-n" 'make-frame)
+(global-set-key (kbd "C-c q") 'delete-frame)
+(global-set-key (kbd "C-c w") 'kill-this-buffer)
+(global-set-key (kbd "C-c n") 'make-frame)
 
 ;; movement key bindings (use h-j-k-l for movement like vi)
 (global-set-key "\C-l" 'forward-char)
@@ -33,9 +33,12 @@
 (global-set-key [f6] 'gud-next)
 (global-set-key [f7] 'gud-step)
 (global-set-key [f8] 'gud-cont)
-(global-set-key [f9] 'compile)
+;; (global-set-key [f9] 'compile) ;; needed the keybinding
 (global-set-key [f12] 'linum-mode)
 
 ;; buffer switching and listing
 (global-set-key "\C-b" 'switch-to-buffer)
 (global-set-key "\C-x\C-b" 'bs-show)
+
+;; because ropemacs uses M-/
+;; (global-set-key "\M-n" 'dabbrev-expand)

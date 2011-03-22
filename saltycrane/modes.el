@@ -10,22 +10,22 @@
 ;;================================================
 ;; AUTO COMPLETE MODE
 ;;================================================
-(add-to-list 'load-path (concat sc-vendor-dir "/auto-complete-1.2"))
+(add-to-list 'load-path (concat sc-vendor-dir "/auto-complete-1.3"))
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories (concat sc-vendor-dir "/auto-complete-1.2/dict"))
+(add-to-list 'ac-dictionary-directories (concat sc-vendor-dir "/auto-complete-1.3/dict"))
 (ac-config-default)
-(setq ac-use-fuzzy t)
-(setq ac-fuzzy-cursor-color "orange")
 (setq ac-sources '(ac-source-filename
-                   ac-source-functions
-                   ac-source-yasnippet
-                   ac-source-variables
-                   ac-source-symbols
-                   ac-source-features
-                   ac-source-abbrev
-                   ac-source-words-in-same-mode-buffers
-                   ac-source-dictionary
-                   ac-source-ropemacs
+                   ;; ac-source-functions
+                   ;; ac-source-yasnippet
+                   ;; ac-source-variables
+                   ;; ac-source-symbols
+                   ;; ac-source-features
+                   ;; ac-source-abbrev
+                   ;; ac-source-words-in-same-mode-buffers
+                   ;; ac-source-dictionary
+                   ;; ac-source-ropemacs
+                   ;; ac-source-mysource1
+                   ;; ac-source-rope
                    ))
 
 ;;================================================
@@ -46,11 +46,11 @@
              (define-key yaml-mode-map "\C-j" 'next-line)))
 
 ;;================================================
-;; ESPRESSO MODE
+;; JS-MODE (formerly espresso-mode)
+;; included with Emacs >= 23.2
 ;;================================================
-(autoload #'espresso-mode "espresso" "Start espresso-mode" t)
-(add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . espresso-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 
 ;;================================================
 ;; PHP MODE
@@ -84,6 +84,10 @@
 (tramp-set-completion-function "ssh"
                                '((tramp-parse-sconfig "/etc/ssh_config")
                                  (tramp-parse-sconfig "~/.ssh/config")))
+(add-to-list 'tramp-default-proxies-alist
+             '(nil "\\`root\\'" "/ssh:%h:"))
+(add-to-list 'tramp-default-proxies-alist
+             '((regexp-quote (system-name)) nil nil))
 
 ;;================================================
 ;; VARNISH VCL-MODE
@@ -110,6 +114,12 @@
 ;;================================================
 ;; ORG MODE SETTINGS
 ;;================================================
+(add-hook 'org-mode-hook
+          '(lambda ()
+             (define-key org-mode-map "\C-j" nil)
+             (define-key org-mode-map "\C-k" nil)
+             (define-key org-mode-map "\C-p" 'org-kill-line)
+             ))
 '(org-disputed-keys
   (quote (([(shift up)] . [(meta p)])
           ([(shift down)] . [(meta n)])
@@ -143,8 +153,70 @@
 (setq cua-keep-region-after-copy t)
 
 ;;================================================
-;; REDO MODE
+;; JABBER
 ;;================================================
-(require 'redo)
-(global-set-key "\C-z" 'undo)
-(global-set-key "\C-y" 'redo)
+(add-to-list 'load-path (concat sc-vendor-dir "/emacs-jabber-0.8.0/share/emacs/site-lisp"))
+(require 'jabber-autoloads)
+(require 'jabber-wmii)
+(setq jabber-alert-info-message-hooks (quote (jabber-info-display jabber-info-echo jabber-info-wmii)))
+(setq jabber-alert-message-hooks (quote (jabber-message-scroll jabber-message-echo jabber-message-wmii)))
+(setq jabber-alert-muc-hooks (quote (jabber-muc-scroll jabber-muc-echo jabber-muc-wmii)))
+(setq jabber-alert-presence-hooks nil)
+(setq jabber-auto-reconnect t)
+(setq jabber-autoaway-method (quote jabber-xprintidle-get-idle-time))
+(setq jabber-autoaway-status "Away")
+(setq jabber-autoaway-timeout 5)
+(setq jabber-backlog-days nil)
+(setq jabber-backlog-number 1000)
+(setq jabber-chat-buffer-show-avatar nil)
+(setq jabber-history-enable-rotation t)
+(setq jabber-history-enabled nil)  ;; company policy
+(setq jabber-history-size-limit 102400)
+(setq jabber-mode-line-mode t)
+(setq jabber-post-connect-hooks (quote (jabber-send-current-presence jabber-muc-autojoin jabber-whitespace-ping-start jabber-vcard-avatars-find-current jabber-autoaway-start)))
+(setq jabber-roster-line-format " %c %-25n %u %-8s  %S")
+
+;;================================================
+;; PUPPET
+;;================================================
+(autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
+(add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
+(setq puppet-indent-level 4)
+(setq puppet-include-indent 4)
+
+;;================================================
+;; DJANGO
+;; wget http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-2.08-100425.zip
+;;================================================
+(load (concat sc-vendor-dir "/nxhtml/autostart.el"))
+(setq mumamo-background-colors nil)
+(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
+
+;;================================================
+;; SMEX (M-x using ido-mode)
+;;================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/nonsequitur-smex-1.1.1"))
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)  ;; This is your old M-x.
+
+;;================================================
+;; MAGIT
+;;================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/magit-0.8.2/share/emacs/site-lisp"))
+(require 'magit)
+
+;;================================================
+;; TWITTERING-MODE
+;;================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/twittering-mode-1.0.0"))
+(require 'twittering-mode)
+
+;;================================================
+;; ACTIONSCRIPT-MODE
+;;================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/actionscript-mode"))
+(require 'actionscript-mode)
+(add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))
