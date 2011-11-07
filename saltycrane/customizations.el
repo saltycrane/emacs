@@ -1,6 +1,6 @@
 (setq inhibit-startup-message t)       ; don't show the startup message
 (setq tool-bar-mode nil)               ; don't show the tool bar
-(setq menu-bar-mode nil)               ; don't show the menu bar
+(setq menu-bar-mode t)                 ; show the menu bar
 (setq default-truncate-lines t)        ; don't word wrap
 (setq column-number-mode t)            ; show column number in mode line
 (setq transient-mark-mode t)           ; not sure
@@ -15,6 +15,7 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox")
 (setq-default fill-column 80)
+(setq grep-window-height 20)
 
 ;; from http://geosoft.no/development/emacs.html
 (setq search-highlight           t) ; Highlight search object
