@@ -1,0 +1,5 @@
+#key: :re
+#name: :returns: ...
+#condition: 'force-in-comment
+# --
+:returns: $0

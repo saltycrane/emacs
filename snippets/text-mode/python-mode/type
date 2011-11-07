@@ -1,0 +1,5 @@
+#key: :t
+#name: :type ...: ...
+#condition: 'force-in-comment
+# --
+:type $1: $0

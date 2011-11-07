@@ -14,6 +14,7 @@
 (put 'upcase-region 'disabled nil) ; allow use of upcase-region
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox")
+(setq-default fill-column 80)
 
 ;; from http://geosoft.no/development/emacs.html
 (setq search-highlight           t) ; Highlight search object
@@ -27,3 +28,11 @@
 ;; uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
+
+;; ;; make underscore (_) a word boundary everywhere
+;; ;; http://daemianmack.com/?p=45
+;; (defun change-major-mode-hook ()
+;;   (modify-syntax-entry ?_ "_"))
+
+;; http://stackoverflow.com/questions/898401/how-to-get-focus-follows-mouse-over-buffers-in-emacs
+(setq mouse-autoselect-window t)

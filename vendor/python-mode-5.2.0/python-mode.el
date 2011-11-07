@@ -493,7 +493,7 @@ Used for syntactic keywords.  N is the match number (1, 2 or 3)."
         (modify-syntax-entry ?\n ">" table)
         (modify-syntax-entry ?' "\"" table)
         (modify-syntax-entry ?` "$" table)
-        (modify-syntax-entry ?\_ "w" table)
+        ;; (modify-syntax-entry ?\_ "w" table) ;; eliot: don't make underscore part of word class
         table))
 
 (defsubst python-in-string/comment ()

@@ -10,9 +10,9 @@
 ;;================================================
 ;; AUTO COMPLETE MODE
 ;;================================================
-(add-to-list 'load-path (concat sc-vendor-dir "/auto-complete-1.3"))
+(add-to-list 'load-path (concat sc-vendor-dir "/auto-complete-1.3.1"))
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories (concat sc-vendor-dir "/auto-complete-1.3/dict"))
+(add-to-list 'ac-dictionary-directories (concat sc-vendor-dir "/auto-complete-1.3.1/dict"))
 (ac-config-default)
 (setq ac-sources '(ac-source-filename
                    ;; ac-source-functions
@@ -99,17 +99,18 @@
 ;;================================================
 (setq gdb-many-windows t)  ;; allow debugger to show many windows
 (setq compilation-window-height 18)
-(setq compilation-finish-function
-      (lambda (buf str)
+;; comment out because this affects rgrep also
+;; (setq compilation-finish-function
+;;       (lambda (buf str)
 
-        (if (string-match "exited abnormally" str)
+;;         (if (string-match "exited abnormally" str)
 
-            ;;there were errors
-            (message "compilation errors, press C-x ` to visit")
+;;             ;;there were errors
+;;             (message "compilation errors, press C-x ` to visit")
 
-          ;;no errors, make the compilation window go away in 0.5 seconds
-          (run-at-time 1.1 nil 'delete-windows-on buf)
-          (message "No compilation errors."))))
+;;           ;;no errors, make the compilation window go away in 0.5 seconds
+;;           (run-at-time 1.1 nil 'delete-windows-on buf)
+;;           (message "No compilation errors."))))
 
 ;;================================================
 ;; ORG MODE SETTINGS
@@ -170,8 +171,10 @@
 (setq jabber-backlog-number 1000)
 (setq jabber-chat-buffer-show-avatar nil)
 (setq jabber-history-enable-rotation t)
-(setq jabber-history-enabled nil)  ;; company policy
+(setq jabber-history-enabled t)
+(setq jabber-use-global-history nil)
 (setq jabber-history-size-limit 102400)
+(setq jabber-keepalive-interval 300)
 (setq jabber-mode-line-mode t)
 (setq jabber-post-connect-hooks (quote (jabber-send-current-presence jabber-muc-autojoin jabber-whitespace-ping-start jabber-vcard-avatars-find-current jabber-autoaway-start)))
 (setq jabber-roster-line-format " %c %-25n %u %-8s  %S")
@@ -191,6 +194,8 @@
 (load (concat sc-vendor-dir "/nxhtml/autostart.el"))
 (setq mumamo-background-colors nil)
 (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
+(add-to-list 'auto-mode-alist '("\\.rml$" . django-html-mumamo-mode))
+(setq nxml-child-indent 4)  ;; work convention
 
 ;;================================================
 ;; SMEX (M-x using ido-mode)
@@ -220,3 +225,30 @@
 (add-to-list 'load-path (concat sc-vendor-dir "/actionscript-mode"))
 (require 'actionscript-mode)
 (add-to-list 'auto-mode-alist '("\\.as$" . actionscript-mode))
+
+;;================================================
+;; EasyPG
+;;================================================
+(setq epg-gpg-program "/usr/bin/gpg")
+
+;;================================================
+;; RE-BUILDER
+;;================================================
+(require 're-builder)
+(setq reb-re-syntax 'string)
+
+;;================================================
+;; THRIFT-MODE
+;;================================================
+(require 'thrift-mode)
+
+;;================================================
+;; DIFF-MODE
+;;================================================
+(custom-set-faces
+ '(diff-added ((t (:foreground "Green"))) 'now)
+ '(diff-removed ((t (:foreground "Red"))) 'now)
+ )
+(setq special-display-buffer-names
+      (cons '("*rope-preview*" (background-color . "LightSteelBlue"))
+            special-display-buffer-names))

@@ -1,0 +1,6 @@
+#key: :p
+#name: :param ...: ...
+#condition: 'force-in-comment
+# --
+:param $1: $3
+:type $1: $2$0

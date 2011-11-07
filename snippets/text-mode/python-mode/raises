@@ -1,0 +1,5 @@
+#key: :ra
+#name: :raises: ...
+#condition: 'force-in-comment
+# --
+:raises: $0
