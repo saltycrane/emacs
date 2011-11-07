@@ -102,12 +102,9 @@
 ;; comment out because this affects rgrep also
 ;; (setq compilation-finish-function
 ;;       (lambda (buf str)
-
 ;;         (if (string-match "exited abnormally" str)
-
 ;;             ;;there were errors
 ;;             (message "compilation errors, press C-x ` to visit")
-
 ;;           ;;no errors, make the compilation window go away in 0.5 seconds
 ;;           (run-at-time 1.1 nil 'delete-windows-on buf)
 ;;           (message "No compilation errors."))))

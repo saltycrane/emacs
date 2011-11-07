@@ -39,6 +39,3 @@
 ;; buffer switching and listing
 (global-set-key "\C-b" 'switch-to-buffer)
 (global-set-key "\C-x\C-b" 'bs-show)
-
-;; because ropemacs uses M-/
-;; (global-set-key "\M-n" 'dabbrev-expand)
