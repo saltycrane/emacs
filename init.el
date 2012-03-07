@@ -60,3 +60,5 @@
   ;; If there is more than one, they won't work right.
  '(jabber-title-large ((t (:inherit variable-pitch :weight bold :height 1.0 :width semi-expanded))))
  '(jabber-title-medium ((t (:inherit variable-pitch :weight bold :height 1.0 :width semi-expanded)))))
+
+(put 'ido-exit-minibuffer 'disabled nil)

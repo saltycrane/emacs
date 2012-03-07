@@ -15,6 +15,7 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox")
 (setq-default fill-column 80)
+(setq sentence-end-double-space nil)
 (setq grep-window-height 20)
 
 ;; from http://geosoft.no/development/emacs.html

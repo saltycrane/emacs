@@ -249,3 +249,10 @@
 (setq special-display-buffer-names
       (cons '("*rope-preview*" (background-color . "LightSteelBlue"))
             special-display-buffer-names))
+
+;;================================================
+;; RPM-SPEC-MODE
+;;================================================
+(autoload 'rpm-spec-mode "rpm-spec-mode.el" "RPM spec mode." t)
+(setq auto-mode-alist (append '(("\\.spec" . rpm-spec-mode))
+                              auto-mode-alist))

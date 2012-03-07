@@ -70,3 +70,10 @@ did not use: django-html-mode:
 
 thrift-mode:
 wget https://raw.github.com/gist/770490/0096844e6d291485bda6c6d6ca42d454a775eb37/thrift-mode.el
+
+rpm-spec-mode 2011-12-09:
+wget http://www.tihlde.org/~stigb/rpm-spec-mode.el
+
+ (autoload 'rpm-spec-mode "rpm-spec-mode.el" "RPM spec mode." t)
+ (setq auto-mode-alist (append '(("\\.spec" . rpm-spec-mode))
+ 			       auto-mode-alist))
