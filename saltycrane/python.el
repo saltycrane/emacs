@@ -2,8 +2,6 @@
 ;; PYTHON MODE
 ;;================================================
 (setq python-check-command "pycheckers2")
-(global-set-key [?\C-.] 'python-shift-right)
-(global-set-key [?\C-,] 'python-shift-left)
 
 ;; ================================================
 ;; PYMACS, ROPEMACS
@@ -14,10 +12,39 @@
 (setq ropemacs-enable-autoimport t)
 
 ;;================================================
-;; 80-column highlighting
-;; http://ruslanspivak.com/2010/09/27/keep-track-of-whitespaces-and-column-80-overflow/
+;; Fix python-shift-left and python-shift-right so that they keep the region
+;; highlighted.
+;; http://lists.gnu.org/archive/html/help-gnu-emacs/2011-06/msg00063.html
 ;;================================================
-;; display only tails of lines longer than 80 columns, tabs and
-;; trailing whitespaces
-;; (setq whitespace-line-column 80
-;;       whitespace-style '(tabs lines-tail))
+(defun balle-python-shift-left ()
+  (interactive)
+  (let (start end bds)
+    (if (and transient-mark-mode
+           mark-active)
+        (setq start (region-beginning) end (region-end))
+      (progn
+        (setq bds (bounds-of-thing-at-point 'line))
+        (setq start (car bds) end (cdr bds))))
+  (python-shift-left start end))
+  (setq deactivate-mark nil)
+)
+(defun balle-python-shift-right ()
+  (interactive)
+  (let (start end bds)
+    (if (and transient-mark-mode
+           mark-active)
+        (setq start (region-beginning) end (region-end))
+      (progn
+        (setq bds (bounds-of-thing-at-point 'line))
+        (setq start (car bds) end (cdr bds))))
+  (python-shift-right start end))
+  (setq deactivate-mark nil)
+)
+(add-hook 'python-mode-hook
+          (lambda ()
+            (define-key python-mode-map (kbd "C-.")
+            'balle-python-shift-right)
+            (define-key python-mode-map (kbd "C-,")
+            'balle-python-shift-left)
+          )
+)
