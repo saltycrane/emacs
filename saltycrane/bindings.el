@@ -39,3 +39,5 @@
 ;; buffer switching and listing
 (global-set-key "\C-b" 'switch-to-buffer)
 (global-set-key "\C-x\C-b" 'bs-show)
+
+(global-set-key "\M-/" 'hippie-expand)
