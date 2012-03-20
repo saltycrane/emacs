@@ -6,6 +6,8 @@
 (yas/initialize)
 (yas/load-directory (concat emacs-dir "/snippets"))
 (setq yas/prompt-functions '(yas/ido-prompt))
+;; if we use setq, the default "TAB" key will not be unbound.
+(custom-set-variables '(yas/trigger-key "<backtab>"))  ; backtab == S-tab
 
 ;;================================================
 ;; AUTO COMPLETE MODE
