@@ -258,3 +258,8 @@
 (autoload 'rpm-spec-mode "rpm-spec-mode.el" "RPM spec mode." t)
 (setq auto-mode-alist (append '(("\\.spec" . rpm-spec-mode))
                               auto-mode-alist))
+
+;;================================================
+;; SALTYCRANE.COM BLOG POSTS
+;;================================================
+(add-to-list 'auto-mode-alist '("www\\.saltycrane\\.com\\." . html-mode))
