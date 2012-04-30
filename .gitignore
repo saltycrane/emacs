@@ -8,3 +8,4 @@ tramp
 .ropeproject/
 auto-save-list/*
 */host/Tor*
+venv
