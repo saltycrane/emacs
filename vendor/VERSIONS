@@ -77,3 +77,24 @@ wget http://www.tihlde.org/~stigb/rpm-spec-mode.el
  (autoload 'rpm-spec-mode "rpm-spec-mode.el" "RPM spec mode." t)
  (setq auto-mode-alist (append '(("\\.spec" . rpm-spec-mode))
  			       auto-mode-alist))
+
+color-theme:
+http://www.nongnu.org/color-theme/
+http://download.savannah.gnu.org/releases/color-theme/
+cd ~/.emacs.d/vendor
+wget http://download.savannah.gnu.org/releases/color-theme/color-theme-6.6.0.tar.gz
+tar zxvf color-theme-6.6.0.tar.gz 
+
+(add-to-list 'load-path (concat sc-vendor-dir "/color-theme-6.6.0"))
+(require 'color-theme)
+(color-theme-initialize)
+;; (setq color-theme-is-global t)
+(color-theme-midnight)
+
+solarized:
+http://codefork.com/blog/index.php/2011/11/27/getting-the-solarized-theme-to-work-in-emacs/
+download from https://github.com/sellout/emacs-color-theme-solarized/downloads
+(add-to-list 'load-path (concat sc-vendor-dir "/sellout-emacs-color-theme-solarized-6948f4f"))
+(color-theme-initialize)
+(require 'color-theme-solarized)
+(color-theme-solarized-dark)

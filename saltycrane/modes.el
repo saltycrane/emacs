@@ -4,7 +4,7 @@
 (add-to-list 'load-path (concat sc-vendor-dir "/yasnippet-0.6.1c"))
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory (concat emacs-dir "/snippets"))
+(yas/load-directory (concat sc-emacs-dir "/snippets"))
 (setq yas/prompt-functions '(yas/ido-prompt))
 ;; if we use setq, the default "TAB" key will not be unbound.
 (custom-set-variables '(yas/trigger-key "<backtab>"))  ; backtab == S-tab
@@ -260,6 +260,21 @@
                               auto-mode-alist))
 
 ;;================================================
-;; SALTYCRANE.COM BLOG POSTS
+;; SALTYCRANE.COM POSTS
 ;;================================================
 (add-to-list 'auto-mode-alist '("www\\.saltycrane\\.com\\." . html-mode))
+
+;;================================================
+;; ANSI-TERM
+;;================================================
+(setq term-default-bg-color "#000000")
+(setq term-default-fg-color "#FFFFFF")
+(setq term-buffer-maximum-size 50000)
+
+;;================================================
+;; COLOR-THEME
+;;================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/color-theme-6.6.0"))
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-midnight)
