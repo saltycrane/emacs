@@ -1,0 +1,3 @@
+#name : import debugtools; debugtools.enabled = False ...
+# --
+import debugtools; debugtools.enabled = False$0

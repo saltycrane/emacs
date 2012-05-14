@@ -1,0 +1,4 @@
+#name : from debugtools import pdeco ...
+# --
+from debugtools import pdeco
+@pdeco()$0
