@@ -1,4 +1,7 @@
 #!/bin/sh
 
+set -x
 . ~/.emacs.d/venv/bin/activate
-/usr/bin/emacs --daemon
+#/usr/bin/emacs --daemon
+~/lib/emacs-24.1/bin/emacs --daemon
+set +x
