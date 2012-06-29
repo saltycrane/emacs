@@ -6,10 +6,18 @@
 ;; ================================================
 ;; PYMACS, ROPEMACS
 ;; ================================================
-(setq ropemacs-enable-shortcuts nil)
 (require 'pymacs)
 (pymacs-load "ropemacs" "rope-")
+(setq ropemacs-enable-shortcuts nil)
 (setq ropemacs-enable-autoimport t)
+
+;;================================================
+;; JARVIS
+;; http://madlag.github.com/jarvis/
+;;================================================
+(pymacs-load "jarvis.emacs" "j-")
+(global-set-key (kbd "C-x g") 'j-goto-error)
+(global-set-key (kbd "C-x i") 'j-inspect-vars)
 
 ;;================================================
 ;; Fix python-shift-left and python-shift-right so that they keep the region
