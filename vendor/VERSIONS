@@ -98,3 +98,15 @@ download from https://github.com/sellout/emacs-color-theme-solarized/downloads
 (color-theme-initialize)
 (require 'color-theme-solarized)
 (color-theme-solarized-dark)
+
+scss mode
+=========
+https://github.com/antonj/scss-mode
+$ sudo gem install sass
+$ # commit: 2d25dec870e6572a77548eb75a473071024dda0a
+$ cd ~/.emacs.d/vendor
+$ curl https://raw.github.com/antonj/scss-mode/master/scss-mode.el > scss-mode-2d25dec870.el
+.emacs:
+    (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor"))
+    (autoload 'scss-mode "scss-mode-2d25dec870")
+    (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))

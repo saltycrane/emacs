@@ -278,3 +278,9 @@
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-midnight)
+
+;;================================================
+;; SCSS-MODE
+;;================================================
+(autoload 'scss-mode "scss-mode-2d25dec870")
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
