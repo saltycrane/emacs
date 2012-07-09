@@ -52,7 +52,8 @@ curl http://www.riverbankcomputing.com/static/Downloads/sip4/sip-4.13.3.tar.gz |
 pushd sip-4.13.3
 python configure.py
 make
-make install
+# Use sudo to install sip.h. ~/.emacs.d/venv/include/python2.7 -> /usr/include/python2.7
+sudo make install
 popd
 popd
 rm -rf $tempdir
