@@ -6,9 +6,9 @@
 ;; ================================================
 ;; PYMACS, ROPEMACS
 ;; ================================================
+(setq ropemacs-enable-shortcuts nil)  ;; This needs to be first
 (require 'pymacs)
 (pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-shortcuts nil)
 (setq ropemacs-enable-autoimport t)
 
 ;;================================================
