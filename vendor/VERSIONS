@@ -116,3 +116,18 @@ jinja2-mode
 https://github.com/paradoxxxzero/jinja2-mode
 $ cd ~/.emacs.d/vendor
 $ curl https://raw.github.com/paradoxxxzero/jinja2-mode/master/jinja2-mode.el > jinja2-mode-b3e564bfef.el
+.emacs:
+    (autoload 'jinja2-mode "jinja2-mode-b3e564bfef" nil t)
+
+nxhtml mode (django-html-mumamo-mode)
+=====================================
+$ curl http://bazaar.launchpad.net/~nxhtml/nxhtml/main/tarball/835 | tar zx
+$ mv \~nxhtml/nxhtml/main nxhtml-835
+$ rm -rf \~nxhtml
+
+.emacs:
+    (load (concat sc-vendor-dir "/nxhtml-835/autostart.el"))
+    (setq mumamo-background-colors nil)
+    (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
+    (add-to-list 'auto-mode-alist '("\\.rml$" . django-html-mumamo-mode))
+    (setq nxml-child-indent 4)  ;; work convention
