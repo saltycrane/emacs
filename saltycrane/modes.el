@@ -186,15 +186,21 @@
 (setq puppet-indent-level 4)
 (setq puppet-include-indent 4)
 
+;; ;;================================================
+;; ;; DJANGO
+;; ;; wget http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-2.08-100425.zip
+;; ;;================================================
+;; (load (concat sc-vendor-dir "/nxhtml/autostart.el"))
+;; (setq mumamo-background-colors nil)
+;; (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
+;; (add-to-list 'auto-mode-alist '("\\.rml$" . django-html-mumamo-mode))
+;; (setq nxml-child-indent 4)  ;; work convention
+
 ;;================================================
-;; DJANGO
-;; wget http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-2.08-100425.zip
+;; JINJA2
 ;;================================================
-(load (concat sc-vendor-dir "/nxhtml/autostart.el"))
-(setq mumamo-background-colors nil)
-(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
-(add-to-list 'auto-mode-alist '("\\.rml$" . django-html-mumamo-mode))
-(setq nxml-child-indent 4)  ;; work convention
+(autoload 'jinja2-mode "jinja2-mode-b3e564bfef" nil t)
+(add-to-list 'auto-mode-alist '("\\.html$" . jinja2-mode))
 
 ;;================================================
 ;; SMEX (M-x using ido-mode)

@@ -110,3 +110,9 @@ $ curl https://raw.github.com/antonj/scss-mode/master/scss-mode.el > scss-mode-2
     (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor"))
     (autoload 'scss-mode "scss-mode-2d25dec870")
     (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+
+jinja2-mode
+===========
+https://github.com/paradoxxxzero/jinja2-mode
+$ cd ~/.emacs.d/vendor
+$ curl https://raw.github.com/paradoxxxzero/jinja2-mode/master/jinja2-mode.el > jinja2-mode-b3e564bfef.el
