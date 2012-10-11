@@ -10,6 +10,7 @@
   (setq sc-os "linux")
   (setq sc-emacs-dir "~/.emacs.d")
   (setq sc-vendor-dir "~/.emacs.d/vendor")
+  (setq sc-vendor2-dir "~/.emacs.d/vendor2")
   )
  )
 (print sc-os)
@@ -17,6 +18,7 @@
 ;; set load-path
 (add-to-list 'load-path sc-emacs-dir)
 (add-to-list 'load-path sc-vendor-dir)
+(add-to-list 'load-path sc-vendor2-dir)
 
 ;; load other stuff
 (load "saltycrane/defuns")
