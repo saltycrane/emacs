@@ -1,0 +1,3 @@
+[submodule "vendor2/multiple-cursors"]
+	path = vendor2/multiple-cursors
+	url = git://github.com/magnars/multiple-cursors.el.git
