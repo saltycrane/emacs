@@ -1,0 +1,3 @@
+#name : from debugtools import pxml ...
+# --
+from debugtools import pxml; pxml('$0')
