@@ -194,7 +194,11 @@
 (setq mumamo-background-colors nil)
 (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
 (add-to-list 'auto-mode-alist '("\\.rml$" . django-html-mumamo-mode))
-(setq nxml-child-indent 4)  ;; work convention
+(setq nxml-child-indent 4)  ;; work convention is 4 spaces for HTML, etc
+;; (setq nxml-outline-child-indent 4)
+;; (setq mumamo-submode-indent-offset 4)
+(setq django-indent-width 4)
+(setq sgml-basic-offset 4)
 
 ;;================================================
 ;; JINJA2
