@@ -14,7 +14,7 @@
 (put 'upcase-region 'disabled nil) ; allow use of upcase-region
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox")
-(setq-default fill-column 80)
+(setq-default fill-column 72)
 (setq sentence-end-double-space nil)
 (setq grep-window-height 20)
 ;; always split the window vertically
