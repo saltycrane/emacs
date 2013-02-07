@@ -3,10 +3,18 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        cua-paste
         cua-cut-region
+        cua-delete-region
+        dabbrev-expand
+        indent-for-tab-command
         python-backspace
+        python-electric-colon
+        smex
+        upcase-region
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        ido-switch-buffer
         ))
