@@ -10,6 +10,11 @@
 (require 'pymacs)
 (pymacs-load "ropemacs" "rope-")
 (setq ropemacs-enable-autoimport t)
+(setq ropemacs-guess-project t)
+(global-set-key (kbd "C-c g") 'rope-goto-definition)
+(global-set-key (kbd "C-c d") 'rope-show-doc)
+(global-set-key (kbd "C-c f") 'rope-find-occurrences)
+(global-set-key (kbd "M-?") 'rope-code-assist)
 
 ;;================================================
 ;; JARVIS
