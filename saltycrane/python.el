@@ -2,6 +2,15 @@
 ;; PYTHON MODE
 ;;================================================
 (setq python-check-command "pycheckers2")
+(setq python-shell-interpreter "ipython")
+(add-hook 'python-mode-hook
+          (lambda ()
+            (define-key python-mode-map (kbd "C-.")
+            'python-indent-shift-right)
+            (define-key python-mode-map (kbd "C-,")
+            'python-indent-shift-left)
+          )
+)
 
 ;; ================================================
 ;; PYMACS, ROPEMACS
@@ -23,12 +32,3 @@
 (pymacs-load "jarvis.emacs" "j-")
 (global-set-key (kbd "C-x g") 'j-goto-error)
 (global-set-key (kbd "C-x i") 'j-inspect-vars)
-
-(add-hook 'python-mode-hook
-          (lambda ()
-            (define-key python-mode-map (kbd "C-.")
-            'python-indent-shift-right)
-            (define-key python-mode-map (kbd "C-,")
-            'python-indent-shift-left)
-          )
-)

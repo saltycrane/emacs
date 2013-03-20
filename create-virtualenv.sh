@@ -80,5 +80,7 @@ venv/bin/pip install pep8==1.0.1
 venv/bin/pip install https://github.com/saltycrane/jarvis/tarball/master
 venv/bin/pip install Jinja2==2.6
 venv/bin/pip install lxml==2.3.4
+venv/bin/pip install ipython==0.13.1
+venv/bin/pip install ipdb==0.7
 
 set +x
