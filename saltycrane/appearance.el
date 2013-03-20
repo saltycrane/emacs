@@ -2,7 +2,7 @@
 ;; COLORS
 ;; see http://www.gnu.org/software/emacs/manual/html_node/emacs/Standard-Faces.html
 ;;================================================
-(set-face-background 'modeline "#4477aa")
+;;(set-face-background 'modeline "#4477aa")
 (set-face-background 'modeline-inactive "#99aaff")
 (set-face-background 'fringe "#809088")
 (set-face-background 'trailing-whitespace "#e0e0e0")

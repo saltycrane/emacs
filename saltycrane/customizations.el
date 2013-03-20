@@ -18,7 +18,7 @@
 (setq sentence-end-double-space nil)
 (setq grep-window-height 20)
 ;; always split the window vertically
-(setq split-height-threshold 0)
+;; (setq split-height-threshold 0)
 (setq split-width-threshold nil)
 
 ;; from http://geosoft.no/development/emacs.html

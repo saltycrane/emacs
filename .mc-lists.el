@@ -3,13 +3,15 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-        cua-paste
+        cua--prefix-override-handler
         cua-cut-region
         cua-delete-region
+        cua-paste
         dabbrev-expand
         indent-for-tab-command
         python-backspace
         python-electric-colon
+        sgml-close-tag
         smex
         upcase-region
         ))
