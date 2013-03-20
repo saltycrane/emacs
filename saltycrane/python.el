@@ -24,11 +24,3 @@
 (global-set-key (kbd "C-c d") 'rope-show-doc)
 (global-set-key (kbd "C-c f") 'rope-find-occurrences)
 (global-set-key (kbd "M-?") 'rope-code-assist)
-
-;;================================================
-;; JARVIS
-;; http://madlag.github.com/jarvis/
-;;================================================
-(pymacs-load "jarvis.emacs" "j-")
-(global-set-key (kbd "C-x g") 'j-goto-error)
-(global-set-key (kbd "C-x i") 'j-inspect-vars)

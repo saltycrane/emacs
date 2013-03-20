@@ -1,7 +1,4 @@
 *~
-*.elc
-*.tgz
-*.tar.gz
 abbrev_defs
 ac-comphist.dat
 tramp
