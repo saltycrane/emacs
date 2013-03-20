@@ -191,6 +191,16 @@
 ;; wget http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-2.08-100425.zip
 ;;================================================
 (load (concat sc-vendor-dir "/nxhtml-835/autostart.el"))
+;; Workaround the annoying warnings:
+;; Warning (mumamo-per-buffer-local-vars):
+;; Already 'permanent-local t: buffer-file-name
+;; https://gist.github.com/tkf/3951163
+(when (and (= emacs-major-version 24)
+           (>= emacs-minor-version 2))
+  (eval-after-load "mumamo"
+    '(setq mumamo-per-buffer-local-vars
+           (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
+
 (setq mumamo-background-colors nil)
 (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
 (add-to-list 'auto-mode-alist '("\\.rml$" . django-html-mumamo-mode))
