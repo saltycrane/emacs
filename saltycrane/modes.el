@@ -309,7 +309,7 @@
 ;;================================================
 ;; MULTIPLE-CURSORS
 ;;================================================
-(add-to-list 'load-path (concat sc-vendor2-dir "/multiple-cursors"))
+(add-to-list 'load-path (concat sc-vendor-dir "/multiple-cursors.el-1.2.1"))
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
