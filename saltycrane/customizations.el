@@ -16,10 +16,6 @@
       browse-url-generic-program "firefox")
 (setq-default fill-column 72)
 (setq sentence-end-double-space nil)
-(setq grep-window-height 20)
-;; always split the window vertically
-;; (setq split-height-threshold 0)
-(setq split-width-threshold nil)
 
 ;; from http://geosoft.no/development/emacs.html
 (setq search-highlight           t) ; Highlight search object
@@ -36,3 +32,13 @@
 
 ;; http://stackoverflow.com/questions/898401/how-to-get-focus-follows-mouse-over-buffers-in-emacs
 (setq mouse-autoselect-window t)
+
+;;================================================
+;; window customizations
+;;================================================
+(setq grep-window-height 20)
+;; always split the window vertically
+;; (setq split-height-threshold 0)
+(setq split-width-threshold nil)
+;; prevent the following from creating a new window
+(setq same-window-regexps '("\*Annotate "))
