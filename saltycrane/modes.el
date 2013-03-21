@@ -308,6 +308,7 @@
 
 ;;================================================
 ;; MULTIPLE-CURSORS
+;; https://github.com/magnars/multiple-cursors.el
 ;;================================================
 (add-to-list 'load-path (concat sc-vendor-dir "/multiple-cursors.el-1.2.1"))
 (require 'multiple-cursors)
@@ -319,3 +320,25 @@
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-S-c C-e") 'mc/edit-ends-of-lines)
 (global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
+
+;;================================================
+;; GIT-COMMIT-MODE (copied from Brandon Rhodes)
+;; https://github.com/brandon-rhodes/dot-emacs/blob/a441d4019672128ec33e7924abb4ebafc4053d52/init.el#L178
+;;================================================
+(define-derived-mode git-commit-mode diff-mode
+  (setq mode-name "Git-Commit")
+  (auto-fill-mode)
+  (flyspell-mode))
+;; Fix keybindings that are different in diff-mode
+(add-hook
+ 'git-commit-mode-hook
+ (lambda ()
+   (define-key (current-local-map) (kbd "M-q") 'fill-paragraph)
+   (define-key (current-local-map) (kbd "M-l") 'forward-word)
+   (define-key (current-local-map) (kbd "M-h") 'backward-word)
+   (define-key (current-local-map) (kbd "M-j") 'scroll-up)
+   (define-key (current-local-map) (kbd "M-k") 'scroll-down)
+   (define-key (current-local-map) (kbd "M-DEL") 'backward-kill-word)
+   )
+ )
+(add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . git-commit-mode))
