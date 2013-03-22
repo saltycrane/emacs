@@ -21,6 +21,7 @@
 (global-set-key "\C-p" 'kill-line)
 (global-set-key "\M-v" 'downcase-word)
 (global-set-key "\M-b" 'recenter)
+(global-set-key "\C-m" 'newline-and-indent)  ;; experimental
 
 ;; per Steve Yegge's suggestion
 (global-set-key "\C-x\C-n" 'execute-extended-command)
