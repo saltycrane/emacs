@@ -139,12 +139,3 @@ multiple-cursors
 - in .emacs:
     (add-to-list 'load-path (concat sc-vendor-dir "/multiple-cursors.el-1.2.1"))
     (require 'multiple-cursors)
-
-autopair
-========
-- download zipfile master from https://github.com/capitaomorte/autopair
-- unzip and rename to vendor/capitaomorte-autopair-d2346ce7f6
-- in .emacs:
-    (add-to-list 'load-path (concat sc-vendor-dir "/capitaomorte-autopair-d2346ce7f6"))
-    (require 'autopair)
-    (autopair-global-mode) ;; enable autopair in all buffers

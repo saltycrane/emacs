@@ -343,14 +343,7 @@
  )
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . git-commit-mode))
 
-;; ;;================================================
-;; ;; ELECTRIC-PAIR-MODE
-;; ;;================================================
-;; (electric-pair-mode)
-
 ;;================================================
-;; AUTOPAIR-MODE
+;; ELECTRIC-PAIR-MODE
 ;;================================================
-(add-to-list 'load-path (concat sc-vendor-dir "/capitaomorte-autopair-d2346ce7f6"))
-(require 'autopair)
-(autopair-global-mode) ;; enable autopair in all buffers
+(electric-pair-mode)
