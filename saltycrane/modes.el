@@ -342,3 +342,8 @@
    )
  )
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . git-commit-mode))
+
+;;================================================
+;; ELECTRIC-PAIR-MODE
+;;================================================
+(electric-pair-mode)
