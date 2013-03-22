@@ -2,7 +2,6 @@
 ;; PYTHON MODE
 ;;================================================
 (setq python-check-command "pycheckers2")
-(setq python-shell-interpreter "ipython")
 (add-hook 'python-mode-hook
           (lambda ()
             (define-key python-mode-map (kbd "C-.")
@@ -11,6 +10,18 @@
             'python-indent-shift-left)
           )
 )
+
+;; IPython setup
+;; https://github.com/fgallina/python.el/blob/master/python.el
+(setq
+ python-shell-interpreter "ipython"
+ python-shell-interpreter-args "--no-confirm-exit"
+ python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+ python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+ python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
+ python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
+ python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+ )
 
 ;; ================================================
 ;; PYMACS, ROPEMACS
