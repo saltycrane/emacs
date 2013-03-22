@@ -2,14 +2,13 @@
 ;; PYTHON MODE
 ;;================================================
 (setq python-check-command "pycheckers2")
-(add-hook 'python-mode-hook
-          (lambda ()
-            (define-key python-mode-map (kbd "C-.")
-            'python-indent-shift-right)
-            (define-key python-mode-map (kbd "C-,")
-            'python-indent-shift-left)
-          )
-)
+(add-hook
+ 'python-mode-hook
+ (lambda ()
+   (define-key python-mode-map (kbd "C-.") 'python-indent-shift-right)
+   (define-key python-mode-map (kbd "C-,") 'python-indent-shift-left)
+   (define-key python-mode-map "\C-m" 'newline-and-indent)
+   ))
 
 ;; IPython setup
 ;; https://github.com/fgallina/python.el/blob/master/python.el
