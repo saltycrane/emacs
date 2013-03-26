@@ -348,3 +348,10 @@
 ;; ELECTRIC-PAIR-MODE
 ;;================================================
 (electric-pair-mode)
+
+;;================================================
+;; WINNER-MODE
+;; `C-c left' (`winner-undo') undo the last window configuration change
+;; `C-c right' (`winner-redo') redo the changes you had undone
+;;================================================
+(winner-mode)
