@@ -104,3 +104,19 @@
   (interactive)
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
+
+
+;;================================================
+;; Shift indentation left/right by 4 spaces
+;; TODO: keep region highlighted
+;;================================================
+(defun shift-left-like-python (start end)
+  (interactive "r")
+  (indent-rigidly start end -4)
+)
+(defun shift-right-like-python (start end)
+  (interactive "r")
+  (indent-rigidly start end 4)
+)
+(global-set-key (kbd "C-,") 'shift-left-like-python)
+(global-set-key (kbd "C-.") 'shift-right-like-python)
