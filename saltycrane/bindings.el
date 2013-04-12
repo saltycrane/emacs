@@ -28,11 +28,11 @@
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-c\C-k" 'kill-region)
 
-;; for c/c++ devel
-(global-set-key [f5] 'gdb)
-(global-set-key [f6] 'gud-next)
-(global-set-key [f7] 'gud-step)
-(global-set-key [f8] 'gud-cont)
+;; ;; for c/c++ devel
+;; (global-set-key [f5] 'gdb)
+;; (global-set-key [f6] 'gud-next)
+(global-set-key [f7] 'previous-error)
+(global-set-key [f8] 'next-error)
 ;; (global-set-key [f9] 'compile) ;; needed the keybinding
 (global-set-key [f12] 'linum-mode)
 
