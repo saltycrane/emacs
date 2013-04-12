@@ -340,6 +340,7 @@
    (define-key (current-local-map) (kbd "M-j") 'scroll-up)
    (define-key (current-local-map) (kbd "M-k") 'scroll-down)
    (define-key (current-local-map) (kbd "M-DEL") 'backward-kill-word)
+   (define-key (current-local-map) (kbd "M-/") 'dabbrev-expand)
    )
  )
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . git-commit-mode))
