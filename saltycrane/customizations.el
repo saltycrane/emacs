@@ -17,6 +17,12 @@
 (setq-default fill-column 72)
 (setq sentence-end-double-space nil)
 
+;; from http://www.masteringemacs.org/articles/2010/11/14/disabling-prompts-emacs/
+(fset 'yes-or-no-p 'y-or-n-p)  ; don't require typing yes/no
+(setq kill-buffer-query-functions
+  (remq 'process-kill-buffer-query-function
+         kill-buffer-query-functions))
+
 ;; from http://geosoft.no/development/emacs.html
 (setq search-highlight           t) ; Highlight search object
 (setq query-replace-highlight    t) ; Highlight query object
