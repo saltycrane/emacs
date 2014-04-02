@@ -3,14 +3,26 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        comment-dwim
         cua--prefix-override-handler
         cua-cut-region
         cua-delete-region
         cua-paste
+        cursor-down-slightly
+        cursor-up-slightly
         dabbrev-expand
+        handle-select-window
+        ignore
         indent-for-tab-command
+        org-end-of-line
+        org-force-self-insert
+        org-metaright
+        org-self-insert-command
         python-backspace
         python-electric-colon
+        python-indent-dedent-line-backspace
+        python-indent-electric-colon
+        recenter
         sgml-close-tag
         smex
         upcase-region

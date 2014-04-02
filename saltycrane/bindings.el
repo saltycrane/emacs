@@ -20,7 +20,7 @@
 ;; rebind displaced movement key bindings
 (global-set-key "\C-p" 'kill-line)
 (global-set-key "\M-v" 'downcase-word)
-(global-set-key "\M-b" 'recenter)
+(global-set-key "\M-b" 'recenter-top-bottom)
 
 ;; per Steve Yegge's suggestion
 (global-set-key "\C-x\C-n" 'execute-extended-command)
@@ -42,3 +42,5 @@
 
 ;; (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-/" 'dabbrev-expand)
+
+(global-set-key [C-f5] 'revert-buffer)
