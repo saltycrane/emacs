@@ -34,5 +34,17 @@
 (global-set-key (kbd "C-c f") 'rope-find-occurrences)
 (global-set-key (kbd "M-?") 'rope-code-assist)
 
+;; ================================================
+;; SUBWORD MODE
 ;; http://emacsredux.com/blog/2013/04/21/camelcase-aware-editing/
+;; ================================================
 (add-hook 'python-mode-hook 'subword-mode)
+
+;; ================================================
+;; FILL COLUMN INDICATOR
+;; http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
+;; ================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/fill-column-indicator-1.86"))
+(require 'fill-column-indicator)
+(setq fci-rule-column 80)
+(add-hook 'python-mode-hook 'fci-mode)
