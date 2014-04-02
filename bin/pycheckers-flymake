@@ -1,5 +1,5 @@
 #!/bin/bash
 
-~/lib/python-environments/default/bin/pyflakes "$1"
-# ~/lib/python-environments/default/bin/pep8 --repeat "$1"
+$HOME/.emacs.d/venv/bin/pyflakes "$1"
+$HOME/.emacs.d/venv/bin/pep8 --ignore=E302,E501,E241 --repeat "$1"
 true

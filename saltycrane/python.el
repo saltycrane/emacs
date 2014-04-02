@@ -1,7 +1,6 @@
 ;;================================================
 ;; PYTHON MODE
 ;;================================================
-(setq python-check-command "pycheckers2")
 (add-hook
  'python-mode-hook
  (lambda ()
