@@ -34,3 +34,6 @@
 (global-set-key (kbd "C-c d") 'rope-show-doc)
 (global-set-key (kbd "C-c f") 'rope-find-occurrences)
 (global-set-key (kbd "M-?") 'rope-code-assist)
+
+;; http://emacsredux.com/blog/2013/04/21/camelcase-aware-editing/
+(add-hook 'python-mode-hook 'subword-mode)
