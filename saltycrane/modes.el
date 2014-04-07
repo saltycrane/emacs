@@ -1,9 +1,9 @@
 ;;================================================
 ;; YASNIPPET
 ;;================================================
-(add-to-list 'load-path (concat sc-vendor-dir "/yasnippet-0.6.1c"))
+(add-to-list 'load-path (concat sc-vendor-dir "/yasnippet-0.8.0"))
 (require 'yasnippet)
-(yas/initialize)
+(yas-global-mode 1)
 (yas/load-directory (concat sc-emacs-dir "/snippets"))
 (setq yas/prompt-functions '(yas/ido-prompt))
 ;; if we use setq, the default "TAB" key will not be unbound.
