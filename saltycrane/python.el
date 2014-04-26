@@ -35,12 +35,6 @@
 (global-set-key (kbd "M-?") 'rope-code-assist)
 
 ;; ================================================
-;; SUBWORD MODE
-;; http://emacsredux.com/blog/2013/04/21/camelcase-aware-editing/
-;; ================================================
-(add-hook 'python-mode-hook 'subword-mode)
-
-;; ================================================
 ;; FILL COLUMN INDICATOR
 ;; http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
 ;; ================================================

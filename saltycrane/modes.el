@@ -356,3 +356,11 @@
 ;; `C-c right' (`winner-redo') redo the changes you had undone
 ;;================================================
 (winner-mode)
+
+;; ================================================
+;; SUBWORD MODE
+;; http://emacsredux.com/blog/2013/04/21/camelcase-aware-editing/
+;; ================================================
+(add-hook 'prog-mode-hook 'subword-mode)
+;; prog-mode-hook doesn't cover django-html-mumamo-mode for some reason
+(add-hook 'html-mode-hook 'subword-mode)
