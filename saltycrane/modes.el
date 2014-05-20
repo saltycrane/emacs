@@ -208,6 +208,7 @@
 (setq nxml-child-indent 4)  ;; work convention is 4 spaces for HTML, etc
 (setq django-indent-width 4)
 (setq sgml-basic-offset 4)
+(setq mumamo-submode-indent-offset 4)
 ;; Change M-; to use {# ... #}
 ;; Thanks to https://github.com/jonathanchu/emacs/blob/master/jontourage/django_html.el
 (add-hook
