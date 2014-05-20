@@ -188,7 +188,7 @@
 (setq puppet-include-indent 4)
 
 ;;================================================
-;; DJANGO
+;; DJANGO/JINJA2 TEMPLATES
 ;; wget http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-2.08-100425.zip
 ;;================================================
 (load (concat sc-vendor-dir "/nxhtml-835/autostart.el"))
@@ -223,6 +223,13 @@
         (comment-end "#}")
         (comment-start-skip "{# *"))
     (comment-dwim arg)))
+;; Restore my custom keybindings
+(add-hook
+ 'nxml-mode-hook
+ (lambda ()
+   (define-key (current-local-map) (kbd "M-h") 'backward-word)
+   )
+ )
 
 ;;================================================
 ;; JINJA2
@@ -343,7 +350,7 @@
   (setq mode-name "Git-Commit")
   (auto-fill-mode)
   (flyspell-mode))
-;; Fix keybindings that are different in diff-mode
+;; Restore keybindings that are different in diff-mode
 (add-hook
  'git-commit-mode-hook
  (lambda ()
