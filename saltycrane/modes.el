@@ -203,13 +203,26 @@
            (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 
 (setq mumamo-background-colors nil)
-(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
-(add-to-list 'auto-mode-alist '("\\.rml$" . django-html-mumamo-mode))
+(add-to-list 'auto-mode-alist '("\\.html$" . django-nxhtml-mumamo-mode))
+(add-to-list 'auto-mode-alist '("\\.rml$" . django-nxhtml-mumamo-mode))
 (setq nxml-child-indent 4)  ;; work convention is 4 spaces for HTML, etc
-;; (setq nxml-outline-child-indent 4)
-;; (setq mumamo-submode-indent-offset 4)
 (setq django-indent-width 4)
 (setq sgml-basic-offset 4)
+;; Change M-; to use {# ... #}
+;; Thanks to https://github.com/jonathanchu/emacs/blob/master/jontourage/django_html.el
+(add-hook
+ 'django-nxhtml-mumamo-mode-hook
+ (lambda ()
+   (define-key django-nxhtml-mumamo-mode-map [remap comment-dwim]
+     'django-nxhtml-mumamo-comment-dwim)
+   ))
+(defun django-nxhtml-mumamo-comment-dwim (arg)
+  (interactive "*P")
+  (require 'newcomment)
+  (let ((comment-start "{#")
+        (comment-end "#}")
+        (comment-start-skip "{# *"))
+    (comment-dwim arg)))
 
 ;;================================================
 ;; JINJA2
