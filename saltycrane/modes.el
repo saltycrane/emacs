@@ -385,3 +385,11 @@
 (add-hook 'prog-mode-hook 'subword-mode)
 ;; prog-mode-hook doesn't cover django-html-mumamo-mode for some reason
 (add-hook 'html-mode-hook 'subword-mode)
+
+;; ================================================
+;; HIDE SHOW MODE (CODE FOLDING)
+;; http://stackoverflow.com/questions/12763566/permanently-enabling-the-hs-minor-mode-in-emacs
+;; ================================================
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+(add-hook 'nxml-mode-hook #'hs-minor-mode)
+(global-set-key [S-mouse-3] 'hs-mouse-toggle-hiding)
