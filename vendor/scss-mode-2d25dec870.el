@@ -92,16 +92,19 @@ Special commands:
 
 (define-key scss-mode-map "\C-c\C-c" 'scss-compile)
 
-(defun flymake-scss-init ()
-  "Flymake support for SCSS files"
-  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-         (local-file  (file-relative-name
-                       temp-file
-                       (file-name-directory buffer-file-name))))
-    (list scss-sass-command (append scss-sass-options (list "--scss" "--check" local-file)))))
+;; ;; I want to override this in saltycrane/flymake.el, but I could not
+;; ;; figure out how to do it so I am commenting it out here.
 
-(push '(".+\\.scss$" flymake-scss-init) flymake-allowed-file-name-masks)
+;; (defun flymake-scss-init ()
+;;   "Flymake support for SCSS files"
+;;   (let* ((temp-file   (flymake-init-create-temp-buffer-copy
+;;                        'flymake-create-temp-inplace))
+;;          (local-file  (file-relative-name
+;;                        temp-file
+;;                        (file-name-directory buffer-file-name))))
+;;     (list scss-sass-command (append scss-sass-options (list "--scss" "--check" local-file)))))
+
+;; (push '(".+\\.scss$" flymake-scss-init) flymake-allowed-file-name-masks)
 
 ;;;; TODO: Not possible to use multiline regexs flymake? flymake-err-[line]-patterns
 ;; '("Syntax error:\s*\\(.*\\)\n\s*on line\s*\\([0-9]+\\) of \\([^ ]+\\)$" 3 2 nil 1)
