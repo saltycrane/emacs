@@ -188,54 +188,81 @@
 (setq puppet-include-indent 4)
 
 ;;================================================
-;; DJANGO/JINJA2 TEMPLATES
-;; wget http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-2.08-100425.zip
+;; WEB-MODE
+;; http://web-mode.org/
 ;;================================================
-(load (concat sc-vendor-dir "/nxhtml-835/autostart.el"))
-;; Workaround the annoying warnings:
-;; Warning (mumamo-per-buffer-local-vars):
-;; Already 'permanent-local t: buffer-file-name
-;; https://gist.github.com/tkf/3951163
-(when (and (= emacs-major-version 24)
-           (>= emacs-minor-version 2))
-  (eval-after-load "mumamo"
-    '(setq mumamo-per-buffer-local-vars
-           (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
+(add-to-list 'load-path (concat sc-vendor-dir "/web-mode-a3562c0889"))
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(setq web-mode-engines-alist '
+      (("django" . "\\.html\\'")
+       ))
+(setq web-mode-markup-indent-offset 4)
+(setq web-mode-css-indent-offset 4)
+(setq web-mode-code-indent-offset 4)
+(setq web-mode-comment-style 2)
 
-(setq mumamo-background-colors nil)
-(add-to-list 'auto-mode-alist '("\\.html$" . django-nxhtml-mumamo-mode))
-(add-to-list 'auto-mode-alist '("\\.rml$" . django-nxhtml-mumamo-mode))
-(setq nxml-child-indent 4)  ;; work convention is 4 spaces for HTML, etc
-(setq django-indent-width 4)
-(setq sgml-basic-offset 4)
-(setq mumamo-submode-indent-offset 4)
 ;; Change M-; to use {# ... #}
-;; Thanks to https://github.com/jonathanchu/emacs/blob/master/jontourage/django_html.el
-(add-hook
- 'django-nxhtml-mumamo-mode-hook
- (lambda ()
-   (define-key django-nxhtml-mumamo-mode-map [remap comment-dwim]
-     'django-nxhtml-mumamo-comment-dwim)
-   ))
-(defun django-nxhtml-mumamo-comment-dwim (arg)
+(defun sc-jinja-comment-dwim (arg)
   (interactive "*P")
   (require 'newcomment)
   (let ((comment-start "{#")
         (comment-end "#}")
         (comment-start-skip "{# *"))
-    (comment-dwim arg)))
-;; Restore my custom keybindings
-(add-hook
- 'nxml-mode-hook
- (lambda ()
-   (define-key (current-local-map) (kbd "M-h") 'backward-word)
-   )
- )
+    (comment-dwim arg)
+    ))
+(define-key web-mode-map (kbd "M-;") 'sc-jinja-comment-dwim)
+(define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
 
-;;================================================
-;; JINJA2
-;;================================================
-(autoload 'jinja2-mode "jinja2-mode-b3e564bfef" nil t)
+;; ;;================================================
+;; ;; DJANGO/JINJA2 TEMPLATES
+;; ;; wget http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-2.08-100425.zip
+;; ;;================================================
+;; (load (concat sc-vendor-dir "/nxhtml-835/autostart.el"))
+;; ;; Workaround the annoying warnings:
+;; ;; Warning (mumamo-per-buffer-local-vars):
+;; ;; Already 'permanent-local t: buffer-file-name
+;; ;; https://gist.github.com/tkf/3951163
+;; (when (and (= emacs-major-version 24)
+;;            (>= emacs-minor-version 2))
+;;   (eval-after-load "mumamo"
+;;     '(setq mumamo-per-buffer-local-vars
+;;            (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
+
+;; (setq mumamo-background-colors nil)
+;; (add-to-list 'auto-mode-alist '("\\.html$" . django-nxhtml-mumamo-mode))
+;; (add-to-list 'auto-mode-alist '("\\.rml$" . django-nxhtml-mumamo-mode))
+;; (setq nxml-child-indent 4)  ;; work convention is 4 spaces for HTML, etc
+;; (setq django-indent-width 4)
+;; (setq sgml-basic-offset 4)
+;; (setq mumamo-submode-indent-offset 4)
+;; ;; Change M-; to use {# ... #}
+;; ;; Thanks to https://github.com/jonathanchu/emacs/blob/master/jontourage/django_html.el
+;; (add-hook
+;;  'django-nxhtml-mumamo-mode-hook
+;;  (lambda ()
+;;    (define-key django-nxhtml-mumamo-mode-map [remap comment-dwim]
+;;      'django-nxhtml-mumamo-comment-dwim)
+;;    ))
+;; (defun django-nxhtml-mumamo-comment-dwim (arg)
+;;   (interactive "*P")
+;;   (require 'newcomment)
+;;   (let ((comment-start "{#")
+;;         (comment-end "#}")
+;;         (comment-start-skip "{# *"))
+;;     (comment-dwim arg)))
+;; ;; Restore my custom keybindings
+;; (add-hook
+;;  'nxml-mode-hook
+;;  (lambda ()
+;;    (define-key (current-local-map) (kbd "M-h") 'backward-word)
+;;    )
+;;  )
+
+;; ;;================================================
+;; ;; JINJA2
+;; ;;================================================
+;; (autoload 'jinja2-mode "jinja2-mode-b3e564bfef" nil t)
 ;; (add-to-list 'auto-mode-alist '("\\.html$" . jinja2-mode))
 
 ;;================================================
