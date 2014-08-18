@@ -214,6 +214,13 @@
 (define-key web-mode-map (kbd "M-;") 'sc-jinja-comment-dwim)
 (define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
 
+;;================================================
+;; COFFEE-MODE
+;;================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/coffee-mode-0.5.5"))
+(require 'coffee-mode)
+(custom-set-variables '(coffee-tab-width 2))
+
 ;; ;;================================================
 ;; ;; DJANGO/JINJA2 TEMPLATES
 ;; ;; wget http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-2.08-100425.zip
