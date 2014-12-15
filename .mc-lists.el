@@ -8,6 +8,7 @@
         cua-cut-region
         cua-delete-region
         cua-paste
+        cua-paste-pop
         cursor-down-slightly
         cursor-up-slightly
         dabbrev-expand

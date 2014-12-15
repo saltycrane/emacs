@@ -1,5 +1,7 @@
 My Emacs config. (I do mostly Python programming)
 
+JS files need jshist installed.
+
 Setup
 -----
 
