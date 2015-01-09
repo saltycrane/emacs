@@ -2,6 +2,8 @@
 #
 # Create a virtualenv named "venv" for use with Emacs.
 #
+# Also compile helm elc files.
+#
 # Installs:
 #  - ropemacs (http://rope.sourceforge.net/ropemacs.html)
 #  - pyflakes (http://pypi.python.org/pypi/pyflakes/)
@@ -49,5 +51,10 @@ deactivate
 ./venv/bin/pip install ./src/Jinja2-2.6.tar.gz
 ./venv/bin/pip install ./src/ipython-0.13.1.tar.gz
 ./venv/bin/pip install ./src/ipdb-0.7.tar.gz
+
+# Install emacs helm (not a python package)
+pushd vendor/helm-1.6.5
+make
+popd
 
 set +x

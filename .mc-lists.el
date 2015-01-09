@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        coffee-dedent-line-backspace
         comment-dwim
         cua--prefix-override-handler
         cua-cut-region

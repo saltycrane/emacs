@@ -427,3 +427,10 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 (add-hook 'nxml-mode-hook #'hs-minor-mode)
 (global-set-key [S-mouse-3] 'hs-mouse-toggle-hiding)
+
+;;================================================
+;; HELM
+;;================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/helm-1.6.5"))
+(add-to-list 'load-path (concat sc-vendor-dir "/emacs-async-1.2"))
+(require 'helm-config)
