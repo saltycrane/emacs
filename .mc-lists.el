@@ -14,6 +14,7 @@
         cursor-up-slightly
         dabbrev-expand
         handle-select-window
+        helm-confirm-and-exit-minibuffer
         ignore
         indent-for-tab-command
         org-end-of-line
@@ -28,6 +29,7 @@
         sgml-close-tag
         smex
         upcase-region
+        yas-expand
         ))
 
 (setq mc/cmds-to-run-once
