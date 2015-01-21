@@ -430,7 +430,41 @@
 
 ;;================================================
 ;; HELM
+;; https://github.com/emacs-helm/helm
+;; http://tuhdo.github.io/helm-intro.html
 ;;================================================
 (add-to-list 'load-path (concat sc-vendor-dir "/helm-1.6.5"))
 (add-to-list 'load-path (concat sc-vendor-dir "/emacs-async-1.2"))
+(require 'helm)
 (require 'helm-config)
+
+;; key bindings recommended by tuhdo
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "<backtab>")  'helm-select-action) ; list actions using Shift+Tab
+
+;; key bindings because I use j/k for down/up
+(define-key helm-map (kbd "C-j")  'helm-next-line)
+(define-key helm-map (kbd "C-k")  'helm-previous-line)
+(define-key helm-map (kbd "M-j")  'helm-next-page)
+(define-key helm-map (kbd "M-k")  'helm-previous-page)
+
+;; set fuzzy match options
+(setq helm-M-x-fuzzy-match t)
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t)
+
+;; custom colors to go with color-theme-midnight (dark theme)
+(custom-set-faces
+ '(helm-selection ((((class color)) (:background "#441100"))))
+ '(helm-bookmark-directory ((((class color)) (:foreground "SteelBlue"))))
+ '(helm-buffer-directory ((((class color)) (:foreground "SteelBlue"))))
+ '(helm-ff-directory ((((class color)) (:foreground "SteelBlue"))))
+ '(helm-source-header ((((class color)) (:foreground "white" :weight bold :height 1.1 :family "Sans Serif"))))
+)
+
+;; bind helm commands
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)

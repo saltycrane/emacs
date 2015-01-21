@@ -36,8 +36,8 @@
 ;; (global-set-key [f9] 'compile) ;; needed the keybinding
 (global-set-key [f12] 'linum-mode)
 
-;; buffer switching and listing
-(global-set-key "\C-b" 'switch-to-buffer)
+;; ;; buffer switching and listing
+;; (global-set-key "\C-b" 'switch-to-buffer)
 (global-set-key "\C-x\C-b" 'bs-show)
 
 ;; (global-set-key "\M-/" 'hippie-expand)
