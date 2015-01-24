@@ -468,3 +468,12 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-b") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+;;================================================
+;; SILVER SEARCHER (AG)
+;; https://github.com/Wilfred/ag.el/tree/0.45
+;;================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/dash.el-2.10.0"))
+(add-to-list 'load-path (concat sc-vendor-dir "/s.el-1.9.0"))
+(add-to-list 'load-path (concat sc-vendor-dir "/ag.el-0.45"))
+(require 'ag)
