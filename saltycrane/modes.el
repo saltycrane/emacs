@@ -433,10 +433,13 @@
 ;; https://github.com/emacs-helm/helm
 ;; http://tuhdo.github.io/helm-intro.html
 ;;================================================
-(add-to-list 'load-path (concat sc-vendor-dir "/helm-1.6.5"))
+(add-to-list 'load-path (concat sc-vendor-dir "/helm-1.6.6"))
 (add-to-list 'load-path (concat sc-vendor-dir "/emacs-async-1.2"))
 (require 'helm)
 (require 'helm-config)
+(helm-mode t)
+(helm-adaptative-mode t)
+(helm-autoresize-mode t)
 
 ;; key bindings recommended by tuhdo
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
