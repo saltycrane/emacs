@@ -72,13 +72,6 @@
 (add-to-list 'auto-mode-alist '("sites-\\(available\\|enabled\\)/" . apache-mode))
 
 ;;================================================
-;; IDO MODE
-;;================================================
-(ido-mode t)
-(setq ido-enable-flex-matching t)
-(setq ido-default-buffer-method 'samewindow)
-
-;;================================================
 ;; TRAMP
 ;;================================================
 (require 'tramp)
@@ -474,9 +467,31 @@
 
 ;;================================================
 ;; SILVER SEARCHER (AG)
-;; https://github.com/Wilfred/ag.el/tree/0.45
+;; https://github.com/Wilfred/ag.el
 ;;================================================
 (add-to-list 'load-path (concat sc-vendor-dir "/dash.el-2.10.0"))
 (add-to-list 'load-path (concat sc-vendor-dir "/s.el-1.9.0"))
 (add-to-list 'load-path (concat sc-vendor-dir "/ag.el-0.45"))
 (require 'ag)
+
+;;================================================
+;; FLX-IDO / IDO
+;; https://github.com/lewang/flx
+;;================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/flx-0.5"))
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-default-buffer-method 'samewindow)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
+
+;; ;;================================================
+;; ;; PROJECTILE
+;; ;; https://github.com/bbatsov/projectile
+;; ;;================================================
+;; (add-to-list 'load-path (concat sc-vendor-dir "/projectile-74afdbb"))
+;; (require 'projectile)
+;; (projectile-global-mode)
