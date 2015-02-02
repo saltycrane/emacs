@@ -1,4 +1,12 @@
 ;;================================================
+;; Configure MELPA
+;;================================================
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+
+;;================================================
 ;; YASNIPPET
 ;;================================================
 (add-to-list 'load-path (concat sc-vendor-dir "/yasnippet-0.8.0"))
