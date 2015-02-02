@@ -488,10 +488,12 @@
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
 
-;; ;;================================================
-;; ;; PROJECTILE
-;; ;; https://github.com/bbatsov/projectile
-;; ;;================================================
-;; (add-to-list 'load-path (concat sc-vendor-dir "/projectile-74afdbb"))
-;; (require 'projectile)
-;; (projectile-global-mode)
+;;================================================
+;; PROJECTILE
+;; https://github.com/bbatsov/projectile
+;;================================================
+(add-to-list 'load-path (concat sc-vendor-dir "/epl-0.7"))
+(add-to-list 'load-path (concat sc-vendor-dir "/pkg-info.el-0.5"))
+(add-to-list 'load-path (concat sc-vendor-dir "/projectile-f246f72"))
+(require 'projectile)
+(projectile-global-mode)

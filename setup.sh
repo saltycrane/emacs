@@ -53,7 +53,7 @@ deactivate
 ./venv/bin/pip install ./src/ipdb-0.7.tar.gz
 
 # Install emacs helm (not a python package)
-pushd vendor/helm-1.6.5
+pushd vendor/helm-1.6.6
 make
 popd
 
