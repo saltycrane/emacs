@@ -362,6 +362,7 @@
 ;; https://github.com/Wilfred/ag.el
 ;;================================================
 (require 'ag)
+(setq ag-highlight-search t)
 
 ;;================================================
 ;; FLX-IDO / IDO

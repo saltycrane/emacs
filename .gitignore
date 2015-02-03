@@ -10,3 +10,4 @@ xhtml-loader.rnc
 tmp/*
 *.elc
 elpa/archives/melpa/archive-contents
+elpa/*.txt
