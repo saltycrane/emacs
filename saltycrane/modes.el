@@ -13,14 +13,14 @@
 (yas-global-mode 1)
 (yas/load-directory (concat sc-emacs-dir "/snippets"))
 (setq yas/prompt-functions '(yas/ido-prompt))
-;; if we use setq, the default "TAB" key will not be unbound.
-(custom-set-variables '(yas/trigger-key "<backtab>"))  ; backtab == S-tab
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "<backtab>") 'yas-expand)  ; backtab == S-tab
 
 ;;================================================
 ;; AUTO COMPLETE MODE
 ;;================================================
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories (concat sc-vendor-dir "/auto-complete-1.3.1/dict"))
 (ac-config-default)
 (setq ac-sources '(ac-source-filename
                    ;; ac-source-functions
@@ -212,7 +212,7 @@
 ;;================================================
 ;; THRIFT-MODE
 ;;================================================
-(require 'thrift-mode)
+(require 'thrift)
 
 ;;================================================
 ;; DIFF-MODE
