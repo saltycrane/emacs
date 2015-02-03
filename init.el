@@ -26,7 +26,6 @@
 (load "saltycrane/scrolling")
 (load "saltycrane/modes")
 (load "saltycrane/python")
-(load "saltycrane/flymake")
 
 ;; load os-specific stuff
 (setq sc-os-config (concat sc-emacs-dir "/saltycrane/os/" sc-os ".el"))

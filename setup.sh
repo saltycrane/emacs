@@ -48,6 +48,7 @@ deactivate
 ./venv/bin/pip install ./src/python-rope-ropemacs-a6b7f1d.tar.gz
 ./venv/bin/pip install ./src/pyflakes-0.8.1.tar.gz
 ./venv/bin/pip install ./src/pep8-1.5.7.tar.gz
+./venv/bin/pip install ./src/flake8-2.3.0.tar.gz
 ./venv/bin/pip install ./src/Jinja2-2.6.tar.gz
 ./venv/bin/pip install ./src/ipython-0.13.1.tar.gz
 ./venv/bin/pip install ./src/ipdb-0.7.tar.gz

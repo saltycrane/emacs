@@ -7,6 +7,5 @@ auto-save-list/*
 */host/Tor*
 venv
 xhtml-loader.rnc
-elpa/
 tmp/*
 *.elc
