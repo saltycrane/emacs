@@ -1,12 +1,4 @@
 ;;================================================
-;; Configure MELPA
-;;================================================
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-(package-initialize)
-
-;;================================================
 ;; YASNIPPET
 ;;================================================
 (require 'yasnippet)

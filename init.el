@@ -18,8 +18,15 @@
 (add-to-list 'load-path sc-emacs-dir)
 (add-to-list 'load-path sc-vendor-dir)
 
+;; Configure MELPA packages
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+
 ;; load other stuff
 (load "saltycrane/defuns")
+(sc-ensure-packages-compiled)
 (load "saltycrane/customizations")
 (load "saltycrane/bindings")
 (load "saltycrane/appearance")

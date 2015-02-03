@@ -198,3 +198,20 @@
      (t
       "*compilation*"))))
 (setq compilation-buffer-name-function 'froydnj-compilation-buffer-name)
+
+;;================================================
+;; Compile MELPA packages committed in my emacs git repo
+;; http://stackoverflow.com/questions/15342877/how-do-i-automatically-recompile-elpa-packages
+;;================================================
+(require 'dash)
+(require 'f)
+
+(defun sc-was-compiled-p (path)
+ "Does the directory at PATH contain any .elc files?"
+ (--any-p (f-ext? it "elc") (f-files path)))
+
+(defun sc-ensure-packages-compiled ()
+ "If any packages installed with package.el aren't compiled yet, compile them."
+ (--each (f-directories package-user-dir)
+   (unless (sc-was-compiled-p it)
+     (byte-recompile-directory it 0))))
