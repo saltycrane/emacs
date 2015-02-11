@@ -365,17 +365,22 @@
 (setq ag-highlight-search t)
 
 ;;================================================
-;; FLX-IDO / IDO
+;; IDO / IDO-VERTICAL-MODE / FLX-IDO
+;; https://github.com/emacsmirror/ido-vertical-mode
 ;; https://github.com/lewang/flx
 ;;================================================
-(require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)
-(flx-ido-mode 1)
 (setq ido-enable-flex-matching t)
 (setq ido-default-buffer-method 'samewindow)
-;; disable ido faces to see flx highlights.
-(setq ido-use-faces nil)
+
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
+
+;; (require 'flx-ido)
+;; (flx-ido-mode 1)
+;; ;; disable ido faces to see flx highlights.
+;; (setq ido-use-faces nil)
 
 ;;================================================
 ;; PROJECTILE
