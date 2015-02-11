@@ -11,3 +11,4 @@ tmp/*
 *.elc
 elpa/archives/melpa/archive-contents
 elpa/*.txt
+elpa/archives/*

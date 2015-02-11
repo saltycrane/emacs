@@ -53,9 +53,9 @@ deactivate
 ./venv/bin/pip install ./src/ipython-0.13.1.tar.gz
 ./venv/bin/pip install ./src/ipdb-0.7.tar.gz
 
-# Install emacs helm (not a python package)
-pushd vendor/helm-1.6.6
-make
-popd
+# # Install emacs helm (not a python package)
+# pushd vendor/helm-1.6.6
+# make
+# popd
 
 set +x
