@@ -183,8 +183,12 @@
 
 ;;================================================
 ;; MAGIT
+;; https://github.com/magit/magit
+;; https://github.com/jtatarik/magit-gitflow
 ;;================================================
 (require 'magit)
+(require 'magit-gitflow)
+(add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
 
 ;;================================================
 ;; TWITTERING-MODE
