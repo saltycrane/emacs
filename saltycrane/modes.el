@@ -328,7 +328,7 @@
 (require 'helm)
 (require 'helm-config)
 (helm-mode t)
-(helm-adaptative-mode t)
+;; (helm-adaptative-mode t)
 (helm-autoresize-mode t)
 
 ;; key bindings recommended by tuhdo
@@ -343,9 +343,9 @@
 (define-key helm-map (kbd "M-k")  'helm-previous-page)
 
 ;; set fuzzy match options
-(setq helm-M-x-fuzzy-match t)
-(setq helm-buffers-fuzzy-matching t
-      helm-recentf-fuzzy-match    t)
+(setq helm-M-x-fuzzy-match nil)
+(setq helm-buffers-fuzzy-matching nil)
+(setq helm-recentf-fuzzy-match nil)
 
 ;; custom colors to go with color-theme-midnight (dark theme)
 (custom-set-faces
