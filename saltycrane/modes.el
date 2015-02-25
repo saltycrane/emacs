@@ -359,28 +359,21 @@
 ;; bind helm commands
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x C-b") 'helm-mini)
-;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
-;;================================================
-;; SILVER SEARCHER (AG)
-;; https://github.com/Wilfred/ag.el
-;;================================================
-(require 'ag)
-(setq ag-highlight-search t)
+;; ;;================================================
+;; ;; IDO / IDO-VERTICAL-MODE / FLX-IDO
+;; ;; https://github.com/emacsmirror/ido-vertical-mode
+;; ;; https://github.com/lewang/flx
+;; ;;================================================
+;; (ido-mode 1)
+;; (ido-everywhere 1)
+;; (setq ido-enable-flex-matching t)
+;; (setq ido-default-buffer-method 'samewindow)
 
-;;================================================
-;; IDO / IDO-VERTICAL-MODE / FLX-IDO
-;; https://github.com/emacsmirror/ido-vertical-mode
-;; https://github.com/lewang/flx
-;;================================================
-(ido-mode 1)
-(ido-everywhere 1)
-(setq ido-enable-flex-matching t)
-(setq ido-default-buffer-method 'samewindow)
-
-(require 'ido-vertical-mode)
-(ido-vertical-mode 1)
+;; (require 'ido-vertical-mode)
+;; (ido-vertical-mode 1)
 
 ;; (require 'flx-ido)
 ;; (flx-ido-mode 1)
@@ -393,6 +386,40 @@
 ;;================================================
 (require 'projectile)
 (projectile-global-mode)
+(setq projectile-mode-line '(:eval (format " Proj")))
+
+;; helm + projectile
+;; (setq helm-projectile-fuzzy-match nil)
+(require 'helm-projectile)
+(helm-projectile-on)
+;; (global-set-key (kbd "C-b") 'helm-projectile)
+
+;; from http://tuhdo.github.io/helm-projectile.html
+(setq projectile-completion-system 'helm)
+(setq projectile-switch-project-action 'helm-projectile)
+
+;;================================================
+;; PERSPECTIVE + PROJECTILE
+;; https://github.com/nex3/perspective-el
+;;================================================
+(persp-mode)
+(require 'persp-projectile)
+(define-key projectile-mode-map (kbd "C-x C-b") 'projectile-persp-switch-project)
+
+;;================================================
+;; SILVER SEARCHER (AG)
+;; https://github.com/Wilfred/ag.el
+;;================================================
+(require 'ag)
+(setq ag-highlight-search t)
+
+;; helm + ag
+;; (setq helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
+;; (setq helm-ag-command-option "--all-text")
+;; (setq helm-ag-insert-at-point 'symbol)
+(defun projectile-helm-ag ()
+  (interactive)
+  (helm-ag (projectile-project-root)))
 
 ;;================================================
 ;; FLYCHECK (flymake alternative)
