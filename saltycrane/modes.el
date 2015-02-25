@@ -402,3 +402,10 @@
 (global-set-key [f9] 'flycheck-mode)
 (global-set-key [f10] 'flycheck-prev-error)
 (global-set-key [f11] 'flycheck-next-error)
+
+;;================================================
+;; ROBOT-MODE (for the Robot test framework)
+;; https://github.com/sakari/robot-mode
+;;================================================
+(load-file (concat sc-vendor-dir "/robot-mode-a58d660/robot-mode.el"))
+(add-to-list 'auto-mode-alist '("\\.robot\\'" . robot-mode))
