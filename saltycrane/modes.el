@@ -1,4 +1,12 @@
 ;;================================================
+;; KEY-CHORD
+;; http://www.emacswiki.org/emacs/key-chord.el
+;;================================================
+(require 'key-chord)
+(key-chord-mode 1)
+;; (key-chord-define-global "lr" 'revert-buffer)
+
+;;================================================
 ;; YASNIPPET
 ;;================================================
 (require 'yasnippet)
@@ -145,6 +153,7 @@
 ;;================================================
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("www\\.saltycrane\\.com\\." . web-mode))
 (setq web-mode-engines-alist '
       (("django" . "\\.html\\'")
        ))
@@ -152,6 +161,8 @@
 (setq web-mode-css-indent-offset 4)
 (setq web-mode-code-indent-offset 4)
 (setq web-mode-comment-style 2)
+(setq web-mode-enable-current-element-highlight t)
+(setq web-mode-enable-current-column-highlight t)
 
 ;; Change M-; to use {# ... #}
 (defun sc-jinja-comment-dwim (arg)
@@ -172,14 +183,14 @@
 (require 'coffee-mode)
 (custom-set-variables '(coffee-tab-width 2))
 
-;;================================================
-;; SMEX (M-x using ido-mode)
-;;================================================
-(require 'smex)
-(smex-initialize)
-;; (global-set-key (kbd "M-x") 'smex)
-;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)  ;; This is your old M-x.
+;; ;;================================================
+;; ;; SMEX (M-x using ido-mode)
+;; ;;================================================
+;; (require 'smex)
+;; (smex-initialize)
+;; ;; (global-set-key (kbd "M-x") 'smex)
+;; ;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)  ;; This is your old M-x.
 
 ;;================================================
 ;; MAGIT
@@ -189,6 +200,7 @@
 (require 'magit)
 (require 'magit-gitflow)
 (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
+(key-chord-define-global "m," 'magit-status)
 
 ;;================================================
 ;; TWITTERING-MODE
@@ -227,11 +239,6 @@
 ;;================================================
 (setq auto-mode-alist (append '(("\\.spec" . rpm-spec-mode))
                               auto-mode-alist))
-
-;;================================================
-;; SALTYCRANE.COM POSTS
-;;================================================
-(add-to-list 'auto-mode-alist '("www\\.saltycrane\\.com\\." . html-mode))
 
 ;;================================================
 ;; ANSI-TERM
@@ -343,9 +350,9 @@
 (define-key helm-map (kbd "M-k")  'helm-previous-page)
 
 ;; set fuzzy match options
-(setq helm-M-x-fuzzy-match nil)
+(setq helm-M-x-fuzzy-match t)
 (setq helm-buffers-fuzzy-matching nil)
-(setq helm-recentf-fuzzy-match nil)
+(setq helm-recentf-fuzzy-match t)
 
 ;; custom colors to go with color-theme-midnight (dark theme)
 (custom-set-faces
@@ -386,7 +393,7 @@
 ;;================================================
 (require 'projectile)
 (projectile-global-mode)
-(setq projectile-mode-line '(:eval (format " Proj")))
+(setq projectile-mode-line '(:eval (format " Pr")))
 
 ;; helm + projectile
 ;; (setq helm-projectile-fuzzy-match nil)
@@ -405,6 +412,7 @@
 (persp-mode)
 (require 'persp-projectile)
 (define-key projectile-mode-map (kbd "C-x C-b") 'projectile-persp-switch-project)
+(key-chord-define-global "p[" 'projectile-persp-switch-project)
 
 ;;================================================
 ;; SILVER SEARCHER (AG)
@@ -436,3 +444,59 @@
 ;;================================================
 (load-file (concat sc-vendor-dir "/robot-mode-a58d660/robot-mode.el"))
 (add-to-list 'auto-mode-alist '("\\.robot\\'" . robot-mode))
+
+;;================================================
+;; ACE-JUMP-MODE
+;; https://github.com/winterTTr/ace-jump-mode
+;;================================================
+;; ace jump mode major function
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+;; enable a more powerful jump back function from ace jump mode
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;;================================================
+;; ACE-ISEARCH / HELM-SWOOP
+;; https://github.com/tam17aki/ace-isearch
+;; https://github.com/ShingoFukuyama/helm-swoop
+;;================================================
+(require 'ace-isearch)
+(global-ace-isearch-mode +1)
+(setq ace-isearch-input-idle-delay 0.3)
+;; (custom-set-variables
+;;  ;; '(ace-isearch-input-length 7)
+;;  ;; '(ace-isearch-input-idle-delay 0.3)
+;;  '(ace-isearch-submode 'ace-jump-word-mode)
+;;  ;; '(ace-isearch-use-ace-jump 'printing-char)
+;;  )
+;; (ace-isearch-set-ace-jump-after-isearch-exit t)
+
+;;================================================
+;; EXPAND-REGION
+;; https://github.com/magnars/expand-region.el
+;;================================================
+(require 'expand-region)
+(global-set-key (kbd "C-'") 'er/expand-region)
+(global-set-key (kbd "C-\"") 'er/contract-region)
+
+;;================================================
+;; DIMINISH
+;; https://www.eskimo.com/~seldon/diminish.el
+;;================================================
+(require 'diminish)
+(diminish 'helm-mode "He")
+;;(diminish 'ropemacs-mode "Ro")
+(diminish 'magit-auto-revert-mode "MR")
+(diminish 'yas-minor-mode "ya")

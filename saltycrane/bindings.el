@@ -44,3 +44,23 @@
 (global-set-key "\M-/" 'dabbrev-expand)
 
 (global-set-key [C-f5] 'revert-buffer)
+(key-chord-define-global "r5" 'revert-buffer)
+
+;; https://github.com/magnars/.emacs.d/blob/master/settings/sane-defaults.el
+;; Auto refresh buffers
+(global-auto-revert-mode 1)
+;; Also auto refresh dired, but be quiet about it
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+;; UTF-8 please
+(setq locale-coding-system 'utf-8) ; pretty
+(set-terminal-coding-system 'utf-8) ; pretty
+(set-keyboard-coding-system 'utf-8) ; pretty
+(set-selection-coding-system 'utf-8) ; please
+(prefer-coding-system 'utf-8) ; with sugar on top
+;; A saner ediff
+(setq ediff-diff-options "-w")
+(setq ediff-split-window-function 'split-window-horizontally)
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;; Keep cursor away from edges when scrolling up/down
+(require 'smooth-scrolling)

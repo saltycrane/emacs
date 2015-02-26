@@ -215,3 +215,25 @@
  (--each (f-directories package-user-dir)
    (unless (sc-was-compiled-p it)
      (byte-recompile-directory it 0))))
+
+;;================================================
+;; CamelCase / snake_case / etc conversions using s.el
+;; https://github.com/magnars/s.el
+;; https://github.com/magnars/.emacs.d/blob/172aa782837d8425c0cf815ae4c53da59bb8e81e/settings/key-bindings.el#L92-L97
+;; https://github.com/magnars/.emacs.d/blob/172aa782837d8425c0cf815ae4c53da59bb8e81e/defuns/editing-defuns.el#L55-L60
+;;================================================
+(require 's)
+(defun replace-region-by (fn)
+  (let* ((beg (region-beginning))
+         (end (region-end))
+         (contents (buffer-substring beg end)))
+    (delete-region beg end)
+    (insert (funcall fn contents))))
+(defun sc/snake-case-region () (interactive) (replace-region-by 's-snake-case))
+(defun sc/upper-snake-case-region ()
+  (interactive)
+  (replace-region-by 's-snake-case)
+  (replace-region-by 's-upcase))
+(defun sc/lower-camel-case-region () (interactive) (replace-region-by 's-lower-camel-case))
+(defun sc/upper-camel-case-region () (interactive) (replace-region-by 's-upper-camel-case))
+(defun sc/kebab-case-region () (interactive) (replace-region-by 's-dashed-words))

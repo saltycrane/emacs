@@ -28,10 +28,10 @@
 (load "saltycrane/defuns")
 (sc-ensure-packages-compiled)
 (load "saltycrane/customizations")
-(load "saltycrane/bindings")
 (load "saltycrane/appearance")
 (load "saltycrane/scrolling")
 (load "saltycrane/modes")
+(load "saltycrane/bindings")
 (load "saltycrane/python")
 
 ;; load os-specific stuff
@@ -53,3 +53,22 @@
   (load sc-private-config))
 
 (put 'ido-exit-minibuffer 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(coffee-tab-width 2)
+ '(safe-local-variable-values (quote ((encoding . utf-8)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(diff-added ((t (:foreground "Green"))))
+ '(diff-removed ((t (:foreground "Red"))))
+ '(helm-bookmark-directory ((((class color)) (:foreground "SteelBlue"))))
+ '(helm-buffer-directory ((((class color)) (:foreground "SteelBlue"))))
+ '(helm-ff-directory ((((class color)) (:foreground "SteelBlue"))))
+ '(helm-selection ((((class color)) (:background "#441100"))))
+ '(helm-source-header ((((class color)) (:foreground "white" :weight bold :height 1.1 :family "Sans Serif")))))

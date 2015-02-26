@@ -9,6 +9,7 @@ venv
 xhtml-loader.rnc
 tmp/*
 *.elc
-elpa/archives/melpa/archive-contents
 elpa/*.txt
 elpa/archives/*
+session.*
+projectile-bookmarks.eld
