@@ -176,6 +176,7 @@
 (define-key web-mode-map (kbd "M-;") 'sc-jinja-comment-dwim)
 (define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
 (define-key web-mode-map [S-mouse-3] 'web-mode-fold-or-unfold)
+(define-key web-mode-map (kbd "C-'") 'web-mode-mark-and-expand)
 
 ;;================================================
 ;; COFFEE-MODE
