@@ -11,5 +11,6 @@ tmp/*
 *.elc
 elpa/*.txt
 elpa/archives/*
+elpa/yasnippet*/snippets
 session.*
 projectile-bookmarks.eld
