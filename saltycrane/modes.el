@@ -17,24 +17,30 @@
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (define-key yas-minor-mode-map (kbd "<backtab>") 'yas-expand)  ; backtab == S-tab
 
+;; ;;================================================
+;; ;; AUTO COMPLETE MODE
+;; ;;================================================
+;; (require 'auto-complete-config)
+;; (ac-config-default)
+;; (setq ac-sources '(ac-source-filename
+;;                    ;; ac-source-functions
+;;                    ;; ac-source-yasnippet
+;;                    ;; ac-source-variables
+;;                    ;; ac-source-symbols
+;;                    ;; ac-source-features
+;;                    ;; ac-source-abbrev
+;;                    ;; ac-source-words-in-same-mode-buffers
+;;                    ;; ac-source-dictionary
+;;                    ;; ac-source-ropemacs
+;;                    ;; ac-source-mysource1
+;;                    ;; ac-source-rope
+;;                    ))
+
 ;;================================================
-;; AUTO COMPLETE MODE
+;; COMPANY-MODE
+;; http://company-mode.github.io/
 ;;================================================
-(require 'auto-complete-config)
-(ac-config-default)
-(setq ac-sources '(ac-source-filename
-                   ;; ac-source-functions
-                   ;; ac-source-yasnippet
-                   ;; ac-source-variables
-                   ;; ac-source-symbols
-                   ;; ac-source-features
-                   ;; ac-source-abbrev
-                   ;; ac-source-words-in-same-mode-buffers
-                   ;; ac-source-dictionary
-                   ;; ac-source-ropemacs
-                   ;; ac-source-mysource1
-                   ;; ac-source-rope
-                   ))
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;;================================================
 ;; MARKDOWN MODE
