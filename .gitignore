@@ -14,3 +14,4 @@ elpa/archives/*
 elpa/yasnippet*/snippets
 session.*
 projectile-bookmarks.eld
+projectile.cache

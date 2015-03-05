@@ -38,7 +38,8 @@
 ;; FILL COLUMN INDICATOR
 ;; http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
 ;; ================================================
-(add-to-list 'load-path (concat sc-vendor-dir "/fill-column-indicator-1.86"))
 (require 'fill-column-indicator)
 (setq fci-rule-column 80)
-(add-hook 'python-mode-hook 'fci-mode)
+;; need to suspend fill column indicator when using showing completions
+;; http://emacs.stackexchange.com/questions/147/how-can-i-get-a-ruler-at-column-80
+;; (add-hook 'python-mode-hook 'fci-mode)

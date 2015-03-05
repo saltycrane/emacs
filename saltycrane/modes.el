@@ -427,6 +427,7 @@
 ;;================================================
 (require 'ag)
 (setq ag-highlight-search t)
+(global-set-key (kbd "C-;") 'ag-project)
 
 ;; helm + ag
 ;; (setq helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
@@ -451,6 +452,10 @@
 ;;================================================
 (load-file (concat sc-vendor-dir "/robot-mode-a58d660/robot-mode.el"))
 (add-to-list 'auto-mode-alist '("\\.robot\\'" . robot-mode))
+(add-hook 'robot-mode-hook
+          '(lambda ()
+             (setq c-basic-offset 4)
+             ))
 
 ;;================================================
 ;; ACE-JUMP-MODE
@@ -475,20 +480,10 @@
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
 ;;================================================
-;; ACE-ISEARCH / HELM-SWOOP
-;; https://github.com/tam17aki/ace-isearch
+;; HELM-SWOOP
 ;; https://github.com/ShingoFukuyama/helm-swoop
 ;;================================================
-(require 'ace-isearch)
-(global-ace-isearch-mode +1)
-(setq ace-isearch-input-idle-delay 0.3)
-;; (custom-set-variables
-;;  ;; '(ace-isearch-input-length 7)
-;;  ;; '(ace-isearch-input-idle-delay 0.3)
-;;  '(ace-isearch-submode 'ace-jump-word-mode)
-;;  ;; '(ace-isearch-use-ace-jump 'printing-char)
-;;  )
-;; (ace-isearch-set-ace-jump-after-isearch-exit t)
+(require 'helm-swoop)
 
 ;;================================================
 ;; EXPAND-REGION
@@ -507,3 +502,4 @@
 ;;(diminish 'ropemacs-mode "Ro")
 (diminish 'magit-auto-revert-mode "MR")
 (diminish 'yas-minor-mode "ya")
+;;(diminish 'company-mode "co")
