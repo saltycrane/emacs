@@ -147,13 +147,18 @@
 (setq puppet-include-indent 4)
 
 ;;================================================
+;; JSON-MODE
+;;================================================
+(require 'json-mode)
+(add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
+
+;;================================================
 ;; JS2-MODE
 ;; JS2-REFACTOR-MODE
 ;; SKEWER-MODE
 ;;================================================
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 (setq js2-highlight-level 3)
 (setq js2-basic-offset 4)
 (add-hook 'js2-mode-hook
