@@ -59,13 +59,6 @@
              (define-key yaml-mode-map "\C-j" 'next-line)))
 
 ;;================================================
-;; JS-MODE (formerly espresso-mode)
-;; included with Emacs >= 23.2
-;;================================================
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
-
-;;================================================
 ;; PHP MODE
 ;;================================================
 (add-to-list 'auto-mode-alist
@@ -154,6 +147,27 @@
 (setq puppet-include-indent 4)
 
 ;;================================================
+;; JS2-MODE
+;; JS2-REFACTOR-MODE
+;; SKEWER-MODE
+;;================================================
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
+(setq js2-highlight-level 3)
+(setq js2-basic-offset 4)
+(add-hook 'js2-mode-hook
+          '(lambda ()
+             (define-key js2-mode-map "\M-j" 'scroll-up)
+             ))
+(require 'js2-refactor)
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+(require 'skewer-mode)
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
+
+;;================================================
 ;; WEB-MODE
 ;; http://web-mode.org/
 ;;================================================
@@ -197,7 +211,7 @@
 ;; COFFEE-MODE
 ;;================================================
 (require 'coffee-mode)
-(custom-set-variables '(coffee-tab-width 2))
+(custom-set-variables '(coffee-tab-width 4))
 
 ;; ;;================================================
 ;; ;; SMEX (M-x using ido-mode)

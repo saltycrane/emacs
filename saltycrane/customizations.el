@@ -8,7 +8,6 @@
 (setq dabbrev-case-replace nil)        ; make sure case is preserved when expanding
 (setq mark-holidays-in-calendar t)
 (setq c-default-style '((c-mode . "bsd"))) ; cc mode
-(setq c-basic-offset 3)
 (setq frame-title-format '("%b: %f"))
 (setq set-mark-command-repeat-pop t) ; move in mark ring with C-u C-space repeatedly
 (put 'upcase-region 'disabled nil) ; allow use of upcase-region
