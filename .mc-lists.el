@@ -13,6 +13,7 @@
         cursor-down-slightly
         cursor-up-slightly
         dabbrev-expand
+        electric-pair-delete-pair
         handle-select-window
         helm-confirm-and-exit-minibuffer
         ignore
@@ -34,5 +35,6 @@
 
 (setq mc/cmds-to-run-once
       '(
+        helm-M-x
         ido-switch-buffer
         ))
