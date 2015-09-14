@@ -62,5 +62,6 @@
 (setq ediff-diff-options "-w")
 (setq ediff-split-window-function 'split-window-horizontally)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-;; Keep cursor away from edges when scrolling up/down
-(require 'smooth-scrolling)
+
+;; ;; Keep cursor away from edges when scrolling up/down
+;; (require 'smooth-scrolling)

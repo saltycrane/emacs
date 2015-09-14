@@ -17,25 +17,6 @@
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (define-key yas-minor-mode-map (kbd "<backtab>") 'yas-expand)  ; backtab == S-tab
 
-;; ;;================================================
-;; ;; AUTO COMPLETE MODE
-;; ;;================================================
-;; (require 'auto-complete-config)
-;; (ac-config-default)
-;; (setq ac-sources '(ac-source-filename
-;;                    ;; ac-source-functions
-;;                    ;; ac-source-yasnippet
-;;                    ;; ac-source-variables
-;;                    ;; ac-source-symbols
-;;                    ;; ac-source-features
-;;                    ;; ac-source-abbrev
-;;                    ;; ac-source-words-in-same-mode-buffers
-;;                    ;; ac-source-dictionary
-;;                    ;; ac-source-ropemacs
-;;                    ;; ac-source-mysource1
-;;                    ;; ac-source-rope
-;;                    ))
-
 ;;================================================
 ;; COMPANY-MODE
 ;; http://company-mode.github.io/
@@ -155,7 +136,6 @@
 ;;================================================
 ;; JS2-MODE
 ;; JS2-REFACTOR-MODE
-;; SKEWER-MODE
 ;;================================================
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
@@ -167,10 +147,6 @@
              ))
 (require 'js2-refactor)
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
-(require 'skewer-mode)
-(add-hook 'js2-mode-hook 'skewer-mode)
-(add-hook 'css-mode-hook 'skewer-css-mode)
-(add-hook 'html-mode-hook 'skewer-html-mode)
 
 ;;================================================
 ;; WEB-MODE
@@ -218,15 +194,6 @@
 (require 'coffee-mode)
 (custom-set-variables '(coffee-tab-width 4))
 
-;; ;;================================================
-;; ;; SMEX (M-x using ido-mode)
-;; ;;================================================
-;; (require 'smex)
-;; (smex-initialize)
-;; ;; (global-set-key (kbd "M-x") 'smex)
-;; ;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)  ;; This is your old M-x.
-
 ;;================================================
 ;; MAGIT
 ;; https://github.com/magit/magit
@@ -236,11 +203,6 @@
 (require 'magit-gitflow)
 (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
 (key-chord-define-global "m," 'magit-status)
-
-;;================================================
-;; TWITTERING-MODE
-;;================================================
-(require 'twittering-mode)
 
 ;;================================================
 ;; EasyPG
@@ -403,24 +365,6 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-b") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-
-;; ;;================================================
-;; ;; IDO / IDO-VERTICAL-MODE / FLX-IDO
-;; ;; https://github.com/emacsmirror/ido-vertical-mode
-;; ;; https://github.com/lewang/flx
-;; ;;================================================
-;; (ido-mode 1)
-;; (ido-everywhere 1)
-;; (setq ido-enable-flex-matching t)
-;; (setq ido-default-buffer-method 'samewindow)
-
-;; (require 'ido-vertical-mode)
-;; (ido-vertical-mode 1)
-
-;; (require 'flx-ido)
-;; (flx-ido-mode 1)
-;; ;; disable ido faces to see flx highlights.
-;; (setq ido-use-faces nil)
 
 ;;================================================
 ;; PROJECTILE

@@ -10,6 +10,7 @@
         cua-delete-region
         cua-paste
         cua-paste-pop
+        cua-scroll-up
         cursor-down-slightly
         cursor-up-slightly
         dabbrev-expand
