@@ -33,13 +33,3 @@
 (global-set-key (kbd "C-c d") 'rope-show-doc)
 (global-set-key (kbd "C-c f") 'rope-find-occurrences)
 (global-set-key (kbd "M-?") 'rope-code-assist)
-
-;; ================================================
-;; FILL COLUMN INDICATOR
-;; http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
-;; ================================================
-(require 'fill-column-indicator)
-(setq fci-rule-column 80)
-;; need to suspend fill column indicator when using showing completions
-;; http://emacs.stackexchange.com/questions/147/how-can-i-get-a-ruler-at-column-80
-;; (add-hook 'python-mode-hook 'fci-mode)
