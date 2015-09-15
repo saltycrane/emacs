@@ -413,10 +413,15 @@
 ;; FLYCHECK (flymake alternative)
 ;; http://www.flycheck.org/en/latest/
 ;;================================================
+(require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (global-set-key [f9] 'flycheck-mode)
 (global-set-key [f10] 'flycheck-prev-error)
 (global-set-key [f11] 'flycheck-next-error)
+
+;; use eslint with web-mode for jsx files
+;; http://codewinds.com/blog/2015-04-02-emacs-flycheck-eslint-jsx.html
+(flycheck-add-mode 'javascript-eslint 'web-mode)
 
 ;;================================================
 ;; ROBOT-MODE (for the Robot test framework)
