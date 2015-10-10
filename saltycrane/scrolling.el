@@ -13,8 +13,10 @@
 ;; move around a little
 (defun cursor-up-slightly () (interactive) (previous-line 5))
 (defun cursor-down-slightly () (interactive) (next-line 5))
-(global-set-key "\C-\M-j" 'cursor-down-slightly)
-(global-set-key "\C-\M-k" 'cursor-up-slightly)
+;; (global-set-key "\C-\M-j" 'cursor-down-slightly)
+;; (global-set-key "\C-\M-k" 'cursor-up-slightly)
+(global-set-key "\C-\M-n" 'cursor-down-slightly)
+(global-set-key "\C-\M-p" 'cursor-up-slightly)
 
 (defun scroll-up-slightly () (interactive) (scroll-up 5))
 (defun scroll-down-slightly () (interactive) (scroll-down 5))

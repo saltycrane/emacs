@@ -35,9 +35,9 @@
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
-(add-hook 'yaml-mode-hook
-          '(lambda ()
-             (define-key yaml-mode-map "\C-j" 'next-line)))
+;; (add-hook 'yaml-mode-hook
+;;           '(lambda ()
+;;              (define-key yaml-mode-map "\C-j" 'next-line)))
 
 ;;================================================
 ;; PHP MODE
@@ -82,12 +82,12 @@
 ;;================================================
 ;; ORG MODE SETTINGS
 ;;================================================
-(add-hook 'org-mode-hook
-          '(lambda ()
-             (define-key org-mode-map "\C-j" nil)
-             (define-key org-mode-map "\C-k" nil)
-             (define-key org-mode-map "\C-p" 'org-kill-line)
-             ))
+;; (add-hook 'org-mode-hook
+;;           '(lambda ()
+;;              (define-key org-mode-map "\C-j" nil)
+;;              (define-key org-mode-map "\C-k" nil)
+;;              (define-key org-mode-map "\C-p" 'org-kill-line)
+;;              ))
 '(org-disputed-keys
   (quote (([(shift up)] . [(meta p)])
           ([(shift down)] . [(meta n)])
@@ -114,11 +114,11 @@
       (quote ("~/Documents/notes"))
       )
 
-;;================================================
-;; CUA MODE
-;;================================================
-(cua-mode t)
-(setq cua-keep-region-after-copy t)
+;; ;;================================================
+;; ;; CUA MODE
+;; ;;================================================
+;; (cua-mode t)
+;; (setq cua-keep-region-after-copy t)
 
 ;;================================================
 ;; PUPPET
@@ -141,10 +141,10 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (setq js2-highlight-level 3)
 (setq js2-basic-offset 4)
-(add-hook 'js2-mode-hook
-          '(lambda ()
-             (define-key js2-mode-map "\M-j" 'scroll-up)
-             ))
+;; (add-hook 'js2-mode-hook
+;;           '(lambda ()
+;;              (define-key js2-mode-map "\M-j" 'scroll-up)
+;;              ))
 (require 'js2-refactor)
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 
@@ -284,10 +284,10 @@
  'git-commit-mode-hook
  (lambda ()
    (define-key (current-local-map) (kbd "M-q") 'fill-paragraph)
-   (define-key (current-local-map) (kbd "M-l") 'forward-word)
-   (define-key (current-local-map) (kbd "M-h") 'backward-word)
-   (define-key (current-local-map) (kbd "M-j") 'scroll-up)
-   (define-key (current-local-map) (kbd "M-k") 'scroll-down)
+   (define-key (current-local-map) (kbd "M-f") 'forward-word)
+   (define-key (current-local-map) (kbd "M-b") 'backward-word)
+   (define-key (current-local-map) (kbd "M-n") 'scroll-up)
+   (define-key (current-local-map) (kbd "M-p") 'scroll-down)
    (define-key (current-local-map) (kbd "M-DEL") 'backward-kill-word)
    (define-key (current-local-map) (kbd "M-/") 'dabbrev-expand)
    (define-key (current-local-map) (kbd "C-,") 'shift-left-like-python)
@@ -340,11 +340,11 @@
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
 (define-key helm-map (kbd "<backtab>")  'helm-select-action) ; list actions using Shift+Tab
 
-;; key bindings because I use j/k for down/up
-(define-key helm-map (kbd "C-j")  'helm-next-line)
-(define-key helm-map (kbd "C-k")  'helm-previous-line)
-(define-key helm-map (kbd "M-j")  'helm-next-page)
-(define-key helm-map (kbd "M-k")  'helm-previous-page)
+;; ;; key bindings because I use j/k for down/up
+;; (define-key helm-map (kbd "C-j")  'helm-next-line)
+;; (define-key helm-map (kbd "C-k")  'helm-previous-line)
+;; (define-key helm-map (kbd "M-j")  'helm-next-page)
+;; (define-key helm-map (kbd "M-k")  'helm-previous-page)
 
 ;; set fuzzy match options
 (setq helm-M-x-fuzzy-match t)
@@ -363,7 +363,7 @@
 ;; bind helm commands
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-b") 'helm-mini)
+(global-set-key (kbd "C-x C-b") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;;================================================
@@ -390,7 +390,7 @@
 ;;================================================
 (persp-mode)
 (require 'persp-projectile)
-(define-key projectile-mode-map (kbd "C-x C-b") 'projectile-persp-switch-project)
+;; (define-key projectile-mode-map (kbd "C-x C-b") 'projectile-persp-switch-project)
 (key-chord-define-global "p[" 'projectile-persp-switch-project)
 
 ;;================================================

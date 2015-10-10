@@ -1,26 +1,26 @@
 ;; windows-like bindings
-(global-set-key "\C-f" 'isearch-forward)
-(define-key isearch-mode-map "\C-f" 'isearch-repeat-forward)
-(global-set-key "\C-s" 'save-buffer)
+;; (global-set-key "\C-f" 'isearch-forward)
+;; (define-key isearch-mode-map "\C-f" 'isearch-repeat-forward)
+;; (global-set-key "\C-s" 'save-buffer)
 (global-set-key "\M-g" 'goto-line)
-(global-set-key (kbd "C-c q") 'delete-frame)
-(global-set-key (kbd "C-c w") 'kill-this-buffer)
+;; (global-set-key (kbd "C-c q") 'delete-frame)  ;; C-x C-c
+;; (global-set-key (kbd "C-c w") 'kill-this-buffer)  ;; C-x k
 (global-set-key (kbd "C-c n") 'make-frame)
 
-;; movement key bindings (use h-j-k-l for movement like vi)
-(global-set-key "\C-l" 'forward-char)
-(global-set-key "\C-h" 'backward-char)
-(global-set-key "\C-j" 'next-line)
-(global-set-key "\C-k" 'previous-line)
-(global-set-key "\M-l" 'forward-word)
-(global-set-key "\M-h" 'backward-word)
-(global-set-key "\M-j" 'scroll-up)
-(global-set-key "\M-k" 'scroll-down)
+;; ;; movement key bindings (use h-j-k-l for movement like vi)
+;; (global-set-key "\C-l" 'forward-char)
+;; (global-set-key "\C-h" 'backward-char)
+;; (global-set-key "\C-j" 'next-line)
+;; (global-set-key "\C-k" 'previous-line)
+;; (global-set-key "\M-l" 'forward-word)
+;; (global-set-key "\M-h" 'backward-word)
+(global-set-key "\M-n" 'scroll-up)
+(global-set-key "\M-p" 'scroll-down)
 
-;; rebind displaced movement key bindings
-(global-set-key "\C-p" 'kill-line)
-(global-set-key "\M-v" 'downcase-word)
-(global-set-key "\M-b" 'recenter-top-bottom)
+;; ;; rebind displaced movement key bindings
+;; (global-set-key "\C-p" 'kill-line)
+;; (global-set-key "\M-v" 'downcase-word)
+;; (global-set-key "\M-b" 'recenter-top-bottom)
 
 ;; per Steve Yegge's suggestion
 (global-set-key "\C-x\C-n" 'execute-extended-command)

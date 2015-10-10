@@ -7,25 +7,25 @@
   (interactive "r")
   (browse-url (concat "http://www.google.com/search?ie=utf-8&oe=utf-8&q=" (buffer-substring beg end))))
 
-;;================================================
-;; my eclipse CTRL+ALT+G replacement
-;;================================================
-(defun grep-selected (start end)
-  (interactive "r")
-  (grep (concat "find . -maxdepth 1 "
-                "! -regex '.*~$' "
-                "! -regex '.*\.orig$' "
-                "! -regex '.*\.new$' "
-                "! -regex '.*\.pyc$' "
-                "! -regex '.*\.elc$' "
-                "! -regex '.*\.bak$' "
-                "-exec grep -nH "
-                " \'"
-                (buffer-substring start end)
-                "\' "
-                "NUL {} + "
-                )))
-(global-set-key "\C-\M-g" 'grep-selected)
+;; ;;================================================
+;; ;; my eclipse CTRL+ALT+G replacement
+;; ;;================================================
+;; (defun grep-selected (start end)
+;;   (interactive "r")
+;;   (grep (concat "find . -maxdepth 1 "
+;;                 "! -regex '.*~$' "
+;;                 "! -regex '.*\.orig$' "
+;;                 "! -regex '.*\.new$' "
+;;                 "! -regex '.*\.pyc$' "
+;;                 "! -regex '.*\.elc$' "
+;;                 "! -regex '.*\.bak$' "
+;;                 "-exec grep -nH "
+;;                 " \'"
+;;                 (buffer-substring start end)
+;;                 "\' "
+;;                 "NUL {} + "
+;;                 )))
+;; (global-set-key "\C-\M-g" 'grep-selected)
 
 ;;================================================
 ;; split into small and large window

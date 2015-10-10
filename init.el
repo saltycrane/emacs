@@ -1,4 +1,5 @@
 ;; set stuff based on operating system
+
 (cond
  ((eq system-type 'windows-nt)
   (setq sc-os "windows")
@@ -8,6 +9,11 @@
   )
  ((eq system-type 'gnu/linux)
   (setq sc-os "linux")
+  (setq sc-emacs-dir "~/.emacs.d")
+  (setq sc-vendor-dir "~/.emacs.d/vendor")
+  )
+ ((eq system-type 'darwin)
+  (setq sc-os "osx")
   (setq sc-emacs-dir "~/.emacs.d")
   (setq sc-vendor-dir "~/.emacs.d/vendor")
   )

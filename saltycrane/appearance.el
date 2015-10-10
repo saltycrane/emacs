@@ -21,5 +21,6 @@
 ;; FONT
 ;; override this in hosts/hostname.el
 ;;================================================
-(modify-all-frames-parameters
- '((font . "DejaVu Sans Mono-10")))
+
+;; (modify-all-frames-parameters
+;;  '((font . "DejaVu Sans Mono-10")))
