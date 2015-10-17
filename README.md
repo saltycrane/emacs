@@ -1,6 +1,4 @@
-My Emacs config. (I do mostly Python programming)
-
-JS files need jshist installed.
+My Emacs config. (I do mostly Javascript programming)
 
 Setup
 -----
@@ -10,12 +8,16 @@ Setup
     $ cd ~/.emacs.d
     $ ./setup.sh <path to python executable>
 
+Javascript setup
+----------------
+http://codewinds.com/blog/2015-04-02-emacs-flycheck-eslint-jsx.html
+
+    $ npm install -g eslint babel-eslint eslint-plugin-react
+
+
 Usage
 -----
 Keybindings to remember:
-
-Movement:
-M-b recenter text (normally C-l)
 
 Text:
 M-^ join line with previous line

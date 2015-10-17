@@ -65,3 +65,7 @@
 
 ;; ;; Keep cursor away from edges when scrolling up/down
 ;; (require 'smooth-scrolling)
+
+;; unbind C-z to suspend
+(global-unset-key [(control z)])
+(global-unset-key [(control x)(control z)])

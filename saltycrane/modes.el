@@ -141,6 +141,7 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (setq js2-highlight-level 3)
 (setq js2-basic-offset 4)
+(setq js2-mode-show-strict-warnings nil)
 ;; (add-hook 'js2-mode-hook
 ;;           '(lambda ()
 ;;              (define-key js2-mode-map "\M-j" 'scroll-up)
@@ -187,6 +188,10 @@
       (let ((web-mode-enable-part-face nil))
         ad-do-it)
     ad-do-it))
+
+;; http://cha1tanya.com/2015/06/20/configuring-web-mode-with-jsx.html
+(setq web-mode-content-types-alist
+      '(("jsx" . "\\.js[x]?\\'")))
 
 ;;================================================
 ;; COFFEE-MODE
@@ -419,8 +424,13 @@
 (global-set-key [f10] 'flycheck-prev-error)
 (global-set-key [f11] 'flycheck-next-error)
 
-;; use eslint with web-mode for jsx files
 ;; http://codewinds.com/blog/2015-04-02-emacs-flycheck-eslint-jsx.html
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+          '(javascript-jshint)))
+
+;; use eslint with web-mode for jsx files
 (flycheck-add-mode 'javascript-eslint 'web-mode)
 
 ;;================================================
